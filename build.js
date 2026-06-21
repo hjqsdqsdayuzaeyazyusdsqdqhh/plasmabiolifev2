@@ -19,11 +19,11 @@ const introVars = [
 ];
 
 const earningsVars = [
-  c => `New donors in ${c} can earn approximately $115 per donation, while returning donors earn around $60 per donation on average.`,
+  c => `New donors in ${c} can earn approximately $115 per donation, while returning donors earn around $65 per donation on average.`,
   c => `In ${c}, new donor compensation starts at approximately $115 per session, with returning donors earning competitive rates.`,
   c => `${c} donors can maximize their earnings by donating up to 8 times per month, with new donors earning the highest rates.`,
-  c => `The average per-donation rate for BioLife ${c} is $115 for new donors and $60 for returning donors in 2026.`,
-  c => `${c} plasma donors can earn between $60 and $115 per donation depending on their donor status and current promotions.`,
+  c => `The average per-donation rate for BioLife ${c} is $115 for new donors and $65 for returning donors in 2026.`,
+  c => `${c} plasma donors can earn between $65 and $115 per donation depending on their donor status and current promotions.`,
   c => `Compensation rates at BioLife ${c} vary by donor status, with first-time donors receiving premium rates.`
 ];
 
@@ -61,8 +61,8 @@ const blogPosts = [
   {
     slug: 'how-much-does-biolife-pay',
     title: 'How Much Does BioLife Pay for Plasma Donation in 2026?',
-    excerpt: 'BioLife pays new donors approximately $115 per donation and returning donors $60 per donation. Learn about factors that affect your pay.',
-    meta: 'How much does BioLife pay for plasma donation in 2026? New donors earn ~$115/session, returning donors ~$60. See full breakdown of pay rates and bonuses.',
+    excerpt: 'BioLife pays new donors approximately $115 per donation and returning donors $65 per donation. Learn about factors that affect your pay.',
+    meta: 'How much does BioLife pay for plasma donation in 2026? New donors earn ~$115/session, returning donors ~$65. See full breakdown of pay rates and bonuses.',
     h1: 'How Much Does BioLife Pay for Plasma Donation in 2026?',
     content: `
 <p>If you're considering donating plasma at BioLife, the most common question is: how much does BioLife pay? In 2026, compensation varies based on your donor status, location, and current promotional offers.</p>
@@ -70,12 +70,12 @@ const blogPosts = [
 <p>BioLife uses a tiered compensation structure that rewards both new and loyal donors:</p>
 <ul>
 <li><strong>New Donors:</strong> Approximately $115 per donation during the introductory period</li>
-<li><strong>Returning Donors:</strong> Approximately $60 per donation on average</li>
+<li><strong>Returning Donors:</strong> Approximately $65 per donation on average</li>
 <li><strong>Frequent Donors:</strong> Additional bonuses for consistent donation schedules</li>
 <li><strong>Referral Bonuses:</strong> Earn extra when you refer friends and family</li>
 </ul>
 <h2>How Much Can You Earn Per Month?</h2>
-<p>With the ability to donate up to 8 times per month, new donors can earn up to $920 in their first month. Returning donors typically earn $240 to $480 per month depending on donation frequency.</p>
+<p>With the ability to donate up to 8 times per month, new donors can earn up to $920 in their first month. Returning donors typically earn $260 to $520 per month depending on donation frequency.</p>
 <h2>Factors That Affect Your Pay</h2>
 <p>Several factors influence your actual earnings at BioLife:</p>
 <ul>
@@ -124,7 +124,7 @@ const blogPosts = [
     content: `
 <p>BioLife offers attractive new donor bonuses that can significantly boost your first month earnings. This guide explains how the bonuses work and how to maximize them.</p>
 <h2>How the New Donor Bonus Works</h2>
-<p>New donors at BioLife typically earn approximately $115 per donation during their introductory period. This is nearly double the standard return donor rate of $60 per donation.</p>
+<p>New donors at BioLife typically earn approximately $115 per donation during their introductory period. This is nearly double the standard return donor rate of $65 per donation.</p>
 <h2>Maximize Your First Month</h2>
 <p>Here's how to get the most from your new donor bonus:</p>
 <ul>
@@ -208,7 +208,7 @@ const renderSchema = s => `<script type="application/ld+json">${JSON.stringify(s
 /* ===== LOCATION FAQS ===== */
 
 const getFaqs = city => [
-  { q: `How much does BioLife pay in ${city} for 2026?`, a: `BioLife pays new donors in ${city} approximately $115 per donation and return donors approximately $60 per donation on average in 2026. Actual compensation varies by location, promotions, and donation frequency.` },
+  { q: `How much does BioLife pay in ${city} for 2026?`, a: `BioLife pays new donors in ${city} approximately $115 per donation and return donors approximately $65 per donation on average in 2026. Actual compensation varies by location, promotions, and donation frequency.` },
   { q: `How often can I donate plasma at BioLife ${city}?`, a: `You can donate plasma up to two times per week, with at least 48 hours between donations. Most ${city} donors average 8 donations per month.` },
   { q: `Are new donor bonuses available at BioLife ${city}?`, a: `Yes, BioLife ${city} frequently offers new donor bonuses and promotions. First-time donors can earn higher rates during their first month, typically around $115 per donation.` },
   { q: `Is plasma donation taxable in ${city}?`, a: `Yes, plasma donation compensation is considered taxable income by the IRS. You will receive a Form 1099-NEC if your earnings exceed $600 in a calendar year.` }
@@ -362,8 +362,8 @@ footer .copy{color:#5a6a7a;font-size:0.72rem;font-family:-apple-system,BlinkMacS
 /* ===== CALCULATOR JS ===== */
 
 const CALC_JS = `
-(function(){var d='new',m={new:115,return:60},b=document.querySelectorAll('.donor-btn'),s=document.getElementById('s'),v=document.getElementById('v'),c=document.getElementById('c'),e=document.getElementById('e'),p=document.getElementById('p'),t=document.getElementById('t');
-function u(){var n=parseInt(s.value,10),r=m[d],o=n*r;v.textContent=n;c.textContent=n;e.textContent='$'+o.toLocaleString();p.textContent='$'+r;t.textContent=n}
+(function(){var d='new',m={new:115,return:65},b=document.querySelectorAll('.donor-btn'),s=document.getElementById('s'),v=document.getElementById('v'),c=document.getElementById('c'),e=document.getElementById('e'),a=document.getElementById('a'),p=document.getElementById('p'),t=document.getElementById('t');
+function u(){var n=parseInt(s.value,10),r=m[d],o=n*r;v.textContent=n;c.textContent=n;e.textContent='$'+o.toLocaleString();a.textContent='$'+(o*12).toLocaleString();p.textContent='$'+r;t.textContent=n}
 b.forEach(function(bn){bn.addEventListener('click',function(){b.forEach(function(b2){b2.classList.remove('active')});bn.classList.add('active');d=bn.getAttribute('data-value');u()})});
 s.addEventListener('input',u);u()})();
 `;
@@ -429,7 +429,7 @@ ${footer()}
 
 function genIndex() {
   const faqs = [
-    { q: 'How much does BioLife pay in 2026?', a: 'BioLife pays new donors approximately $115 per donation and return donors approximately $60 per donation on average in 2026. Actual compensation varies by location, promotions, and donation frequency.' },
+    { q: 'How much does BioLife pay in 2026?', a: 'BioLife pays new donors approximately $115 per donation and return donors approximately $65 per donation on average in 2026. Actual compensation varies by location, promotions, and donation frequency.' },
     { q: 'How often can I donate plasma?', a: 'You can donate plasma up to two times per week, with at least 48 hours between donations. Most donors average 8 donations per month.' },
     { q: 'Are new donor bonuses available?', a: 'Yes, BioLife frequently offers new donor bonuses and promotions. First-time donors can earn higher rates during their first month.' },
     { q: 'Is plasma donation taxable?', a: 'Yes, plasma donation compensation is considered taxable income by the IRS. You will receive a Form 1099-NEC if your earnings exceed $600 in a calendar year.' }
@@ -469,6 +469,7 @@ function genIndex() {
 <table class="results-table">
 <tbody>
 <tr><td>Estimated Monthly Earnings</td><td class="currency" id="e">$460</td></tr>
+<tr><td>Annual Projection</td><td class="currency" id="a">$5,520</td></tr>
 <tr><td>Average Per Donation</td><td class="currency" id="p">$115</td></tr>
 <tr><td>Total Donations</td><td id="t">4</td></tr>
 </tbody>
@@ -575,6 +576,7 @@ function genLocation(loc, idx) {
 <table class="results-table">
 <tbody>
 <tr><td>Estimated Monthly Earnings</td><td class="currency" id="e">$460</td></tr>
+<tr><td>Annual Projection</td><td class="currency" id="a">$5,520</td></tr>
 <tr><td>Average Per Donation</td><td class="currency" id="p">$115</td></tr>
 <tr><td>Total Donations</td><td id="t">4</td></tr>
 </tbody>
