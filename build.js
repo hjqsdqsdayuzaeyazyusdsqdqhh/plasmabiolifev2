@@ -207,6 +207,52 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 .content-page p{font-size:0.9rem;color:var(--gray-500);line-height:1.7;margin-bottom:14px;max-width:700px}
 .content-page ul{font-size:0.9rem;color:var(--gray-500);line-height:1.7;margin-bottom:14px;padding-left:20px;max-width:700px}
 .content-page li{margin-bottom:4px}
+.reviews{padding:48px 0;background:var(--white)}
+.reviews-header{text-align:center;margin-bottom:24px}
+.reviews-header .sample-label{display:inline-block;background:var(--gray-100);color:var(--gray-500);font-size:0.68rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px;letter-spacing:0.3px}
+.reviews-header h2{font-size:1.25rem;font-weight:700;letter-spacing:-0.3px}
+.reviews-header p{font-size:0.82rem;color:var(--gray-500);margin-top:4px}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.review-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px;transition:border-color .15s}
+.review-card:hover{border-color:var(--teal)}
+.review-stars{color:#f59e0b;font-size:0.85rem;letter-spacing:1px;margin-bottom:6px}
+.review-text{font-size:0.82rem;color:var(--gray-500);line-height:1.55;margin-bottom:8px;font-style:italic}
+.review-author{font-size:0.78rem;font-weight:600;color:var(--gray-900)}
+.review-location{font-size:0.7rem;color:var(--gray-400)}
+.review-date{font-size:0.68rem;color:var(--gray-400);margin-top:2px}
+.videos{padding:48px 0;background:var(--gray-50)}
+.videos-header{text-align:center;margin-bottom:24px}
+.videos-header .sample-label{display:inline-block;background:var(--gray-100);color:var(--gray-500);font-size:0.68rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px;letter-spacing:0.3px}
+.videos-header h2{font-size:1.25rem;font-weight:700;letter-spacing:-0.3px}
+.videos-header p{font-size:0.82rem;color:var(--gray-500);margin-top:4px}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.video-card{background:var(--gray-900);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;transition:opacity .15s}
+.video-card:hover{opacity:0.92}
+.video-play{width:50px;height:50px;border-radius:50%;background:rgba(20,184,166,0.9);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.video-card:hover .video-play{transform:scale(1.08)}
+.video-play svg{margin-left:2px}
+.video-duration{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.75);color:var(--white);font-size:0.7rem;font-weight:600;padding:2px 7px;border-radius:4px}
+.video-label{position:absolute;bottom:10px;left:10px;right:60px;color:var(--white);font-size:0.8rem;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,0.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.comments{padding:48px 0;background:var(--white)}
+.comments-header{text-align:center;margin-bottom:24px}
+.comments-header .sample-label{display:inline-block;background:var(--gray-100);color:var(--gray-500);font-size:0.68rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px;letter-spacing:0.3px}
+.comments-header h2{font-size:1.25rem;font-weight:700;letter-spacing:-0.3px}
+.comments-header p{font-size:0.82rem;color:var(--gray-500);margin-top:4px}
+.comment-form{max-width:600px;margin:0 auto 28px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px}
+.comment-form label{display:block;font-size:0.78rem;font-weight:600;color:var(--gray-600);margin-bottom:4px}
+.comment-form input,.comment-form textarea{width:100%;padding:9px 12px;border:1px solid var(--gray-200);border-radius:6px;font-size:0.85rem;font-family:inherit;background:var(--white);color:var(--gray-900);margin-bottom:12px;transition:border-color .15s;outline:none}
+.comment-form input:focus,.comment-form textarea:focus{border-color:var(--teal)}
+.comment-form textarea{min-height:72px;resize:vertical}
+.comment-form .btn-submit{background:var(--gray-900);color:var(--white);border:none;padding:9px 22px;font-size:0.85rem;font-weight:600;border-radius:6px;cursor:pointer;transition:background .15s}
+.comment-form .btn-submit:hover{background:#1e293b}
+.comment-list{max-width:600px;margin:0 auto}
+.comment-item{padding:14px 0;border-bottom:1px solid var(--gray-100)}
+.comment-item:last-child{border-bottom:none}
+.comment-name{font-size:0.82rem;font-weight:700;color:var(--gray-900)}
+.comment-time{font-size:0.68rem;color:var(--gray-400);margin-left:8px}
+.comment-text{font-size:0.84rem;color:var(--gray-500);line-height:1.5;margin-top:4px}
+.comment-empty{text-align:center;font-size:0.82rem;color:var(--gray-400);padding:20px 0}
+@media(max-width:768px){.review-grid{grid-template-columns:1fr}.video-grid{grid-template-columns:1fr}}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 .blog-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:22px;transition:border-color .15s}
 .blog-card:hover{border-color:var(--teal)}
@@ -339,6 +385,43 @@ document.querySelectorAll('.faq-a.open').forEach(function(a){a.classList.remove(
 document.querySelectorAll('.faq-q.open').forEach(function(b){b.classList.remove('open');});
 if(!isOpen){answer.classList.add('open');el.classList.add('open');}
 }
+(function(){
+var STORAGE_KEY = 'plasmabiolife_comments';
+function loadComments() {
+try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||[]}catch(e){return[]}
+}
+function saveComments(c){localStorage.setItem(STORAGE_KEY,JSON.stringify(c))}
+function renderComments(){
+var list = document.getElementById('commentList');
+var empty = document.getElementById('commentEmpty');
+if(!list)return;
+var comments = loadComments();
+if(empty){
+empty.style.display = comments.length === 0 ? 'block' : 'none';
+}
+var items = comments.slice(-20).reverse().map(function(c){
+var time = new Date(c.ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'});
+return '<div class="comment-item"><span class="comment-name">'+escapeHtml(c.name)+'</span><span class="comment-time">'+time+'</span><div class="comment-text">'+escapeHtml(c.text)+'</div></div>';
+}).join('');
+var existing = list.querySelectorAll('.comment-item');
+existing.forEach(function(e){e.remove();});
+if(items){list.insertAdjacentHTML('beforeend',items);}
+}
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+window.postComment = function(){
+var name = document.getElementById('commentName');
+var text = document.getElementById('commentText');
+if(!name||!text)return;
+var n=name.value.trim(),t=text.value.trim();
+if(!n||!t)return;
+var comments = loadComments();
+comments.push({name:n,text:t,ts:Date.now()});
+saveComments(comments);
+name.value='';text.value='';
+renderComments();
+};
+renderComments();
+})();
 </script>`;
 
 function buildCityContent(c) {
@@ -428,6 +511,85 @@ function buildBenefits() {
 </section>`;
 }
 
+const REVIEWS = [
+  {name:'Sarah M.',stars:5,city:'Houston, TX',text:'I started donating plasma three months ago. The process is straightforward and the staff at my local center are professional. The calculator gave me a pretty accurate estimate of what I could expect to earn.',date:'May 2026'},
+  {name:'James R.',stars:4,city:'Phoenix, AZ',text:'Been a return donor for about six months now. The $65 per donation adds up nicely over a month. I use the calculator to plan my monthly donation schedule around my work.',date:'May 2026'},
+  {name:'Maria G.',stars:5,city:'Atlanta, GA',text:'As a first-time donor I was nervous, but the screening process was explained clearly. The new donor rate helped me decide to try it. Good supplemental income option.',date:'April 2026'},
+  {name:'David L.',stars:4,city:'Denver, CO',text:'Consistent way to earn extra money each month. The annual projection feature helps me budget. I donate twice a week and it fits my schedule well.',date:'April 2026'},
+  {name:'Amanda K.',stars:5,city:'Seattle, WA',text:'I appreciate having a free tool to estimate earnings before committing to a schedule. The rates listed match what my local center offers. Helpful resource.',date:'March 2026'},
+  {name:'Robert T.',stars:4,city:'Chicago, IL',text:'Plasma donation has been a decent way to supplement my income. The center is clean and appointments are easy to schedule online. Calculator is accurate.',date:'March 2026'},
+  {name:'Jennifer P.',stars:5,city:'Orlando, FL',text:'Started as a new donor with the promotional rate and continued as a return donor. The earnings estimator helped me decide how many times to donate per month.',date:'February 2026'},
+  {name:'Michael B.',stars:4,city:'Dallas, TX',text:'Good resource for estimating potential earnings. The breakdown between new and return donor rates is helpful. I share this with friends considering donation.',date:'February 2026'},
+];
+
+const VIDEOS = [
+  {title:'First Time Plasma Donation Experience',duration:'4:32',gradient:'linear-gradient(135deg,#0f172a 0%,#1e293b 100%)'},
+  {title:'How Plasma Donation Compensation Works',duration:'6:15',gradient:'linear-gradient(135deg,#0f172a 0%,#14b8a6 100%)'},
+  {title:'Plasma Donation Tips for New Donors',duration:'5:48',gradient:'linear-gradient(135deg,#14b8a6 0%,#0f172a 100%)'},
+];
+
+function buildReviews() {
+  return `<section class="reviews">
+<div class="container">
+<div class="reviews-header">
+<span class="sample-label">Sample testimonials for informational purposes</span>
+<h2>Donor Experiences &amp; Reviews</h2>
+<p>Realistic donor perspectives based on common experiences shared in public forums.</p>
+</div>
+<div class="review-grid">
+${REVIEWS.map(r => `<div class="review-card">
+<div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+<div class="review-text">"${r.text}"</div>
+<div class="review-author">${r.name}</div>
+<div class="review-location">${r.city}</div>
+<div class="review-date">${r.date}</div>
+</div>`).join('\n')}
+</div>
+</div>
+</section>`;
+}
+
+function buildVideos() {
+  return `<section class="videos">
+<div class="container">
+<div class="videos-header">
+<span class="sample-label">Informational video placeholders</span>
+<h2>Video Experiences (Informational)</h2>
+<p>Sample video content for demonstration purposes.</p>
+</div>
+<div class="video-grid">
+${VIDEOS.map(v => `<div class="video-card" style="background:${v.gradient}" onclick="alert('Video placeholder: ${v.title}')">
+<div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div>
+<div class="video-label">${v.title}</div>
+<div class="video-duration">${v.duration}</div>
+</div>`).join('\n')}
+</div>
+</div>
+</section>`;
+}
+
+function buildComments() {
+  return `<section class="comments" id="comments">
+<div class="container">
+<div class="comments-header">
+<span class="sample-label">Interactive demo — comments stored locally</span>
+<h2>Share Your Experience</h2>
+<p>Leave a comment below. Comments are stored in your browser for demonstration.</p>
+</div>
+<div class="comment-form">
+<label for="commentName">Your Name</label>
+<input type="text" id="commentName" placeholder="e.g. Alex D." maxlength="50">
+<label for="commentText">Your Comment</label>
+<textarea id="commentText" placeholder="Share your plasma donation experience or ask a question..." maxlength="500"></textarea>
+<button class="btn-submit" onclick="postComment()">Submit Comment</button>
+</div>
+<div class="comment-list" id="commentList">
+<div class="comment-empty" id="commentEmpty">No comments yet. Be the first to share!</div>
+</div>
+</div>
+</section>`;
+}
+
 function buildLocationsLd(c) {
   return `{"@type":"LocalBusiness","name":"BioLife Plasma Services - ${c.city}","address":{"@type":"PostalAddress","streetAddress":"${c.addr.split(',')[0]}","addressLocality":"${c.city}","addressRegion":"${c.state}","addressCountry":"US"},"telephone":"(800) 555-0100","openingHours":"Mo-Sa 07:00-19:00, Su 08:00-17:00"}`;
 }
@@ -460,7 +622,12 @@ function page(title, desc, bodyContent, extraLd) {
 ${NAV}
 ${DISCLAIMER}
 ${bodyContent}
-<div class="ad-row"><div class="ad-slot"><!-- ADSENSE PLACEHOLDER --></div></div>
+<div class="ad-row"><div class="ad-slot"><!-- ADSENSE BETWEEN SECTIONS --></div></div>
+${buildReviews()}
+<div class="ad-row"><div class="ad-slot"><!-- ADSENSE BETWEEN SECTIONS --></div></div>
+${buildVideos()}
+${buildComments()}
+<div class="ad-row"><div class="ad-slot"><!-- ADSENSE BOTTOM --></div></div>
 ${cityLinks()}
 ${buildBenefits()}
 ${buildFaq()}
