@@ -1,0 +1,9 @@
+{
+  "name": "plasmabiolife",
+  "version": "3.0.0",
+  "private": true,
+  "description": "BioLife Plasma Earnings Calculator - Premium Design Static Site",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
