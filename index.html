@@ -180,8 +180,8 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 .videos-header h2{font-size:1.25rem;font-weight:700;letter-spacing:-0.3px}
 .videos-header p{font-size:0.82rem;color:var(--gray-500);margin-top:4px}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.video-card{background:var(--gray-900);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;transition:opacity .15s}
-.video-card:hover{opacity:0.92}
+.video-card{background:var(--gray-900);border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:16/9}
+.video-card iframe{width:100%;height:100%;border:0}
 .video-play{width:50px;height:50px;border-radius:50%;background:rgba(20,184,166,0.9);display:flex;align-items:center;justify-content:center;transition:transform .2s}
 .video-card:hover .video-play{transform:scale(1.08)}
 .video-play svg{margin-left:2px}
@@ -390,21 +390,9 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 <p>Sample video content for demonstration purposes.</p>
 </div>
 <div class="video-grid">
-<div class="video-card" style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%)" onclick="alert('Video placeholder: First Time Plasma Donation Experience')">
-<div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div>
-<div class="video-label">First Time Plasma Donation Experience</div>
-<div class="video-duration">4:32</div>
-</div>
-<div class="video-card" style="background:linear-gradient(135deg,#0f172a 0%,#14b8a6 100%)" onclick="alert('Video placeholder: How Plasma Donation Compensation Works')">
-<div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div>
-<div class="video-label">How Plasma Donation Compensation Works</div>
-<div class="video-duration">6:15</div>
-</div>
-<div class="video-card" style="background:linear-gradient(135deg,#14b8a6 0%,#0f172a 100%)" onclick="alert('Video placeholder: Plasma Donation Tips for New Donors')">
-<div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div>
-<div class="video-label">Plasma Donation Tips for New Donors</div>
-<div class="video-duration">5:48</div>
-</div>
+<div class="video-card"><iframe src="https://www.youtube.com/embed/cl0_y1AtHZY" title="First Time Plasma Donation Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+<div class="video-card"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FBioLifePlasmaServices%2Fvideos%2F1257305842510771%2F" title="Donate Plasma at BioLife" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+<div class="video-card"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FBioLifePlasmaServices%2Fvideos%2F948167747738479%2F" title="BioLife Plasma Donation" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 </div>
 </div>
 </section>

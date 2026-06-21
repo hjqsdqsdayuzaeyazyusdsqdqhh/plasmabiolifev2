@@ -226,8 +226,8 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 .videos-header h2{font-size:1.25rem;font-weight:700;letter-spacing:-0.3px}
 .videos-header p{font-size:0.82rem;color:var(--gray-500);margin-top:4px}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.video-card{background:var(--gray-900);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;transition:opacity .15s}
-.video-card:hover{opacity:0.92}
+.video-card{background:var(--gray-900);border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:16/9}
+.video-card iframe{width:100%;height:100%;border:0}
 .video-play{width:50px;height:50px;border-radius:50%;background:rgba(20,184,166,0.9);display:flex;align-items:center;justify-content:center;transition:transform .2s}
 .video-card:hover .video-play{transform:scale(1.08)}
 .video-play svg{margin-left:2px}
@@ -523,9 +523,9 @@ const REVIEWS = [
 ];
 
 const VIDEOS = [
-  {title:'First Time Plasma Donation Experience',duration:'4:32',gradient:'linear-gradient(135deg,#0f172a 0%,#1e293b 100%)'},
-  {title:'How Plasma Donation Compensation Works',duration:'6:15',gradient:'linear-gradient(135deg,#0f172a 0%,#14b8a6 100%)'},
-  {title:'Plasma Donation Tips for New Donors',duration:'5:48',gradient:'linear-gradient(135deg,#14b8a6 0%,#0f172a 100%)'},
+  {title:'First Time Plasma Donation Experience',duration:'4:32',url:'https://www.youtube.com/embed/cl0_y1AtHZY',fallback:'https://www.youtube.com/watch?v=cl0_y1AtHZY'},
+  {title:'Donate Plasma at BioLife — Overview',duration:'2:15',url:'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FBioLifePlasmaServices%2Fvideos%2F1257305842510771%2F',fallback:'https://www.facebook.com/BioLifePlasmaServices/videos/donate-plasma-at-biolife/1257305842510771/'},
+  {title:'BioLife Plasma Donation Experience',duration:'1:45',url:'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FBioLifePlasmaServices%2Fvideos%2F948167747738479%2F',fallback:'https://www.facebook.com/BioLifePlasmaServices/videos/donate-plasma-at-biolife/948167747738479/'},
 ];
 
 function buildReviews() {
@@ -555,14 +555,10 @@ function buildVideos() {
 <div class="videos-header">
 <span class="sample-label">Informational video placeholders</span>
 <h2>Video Experiences (Informational)</h2>
-<p>Sample video content for demonstration purposes.</p>
+<p>Sample video content from public sources for demonstration purposes.</p>
 </div>
 <div class="video-grid">
-${VIDEOS.map(v => `<div class="video-card" style="background:${v.gradient}" onclick="alert('Video placeholder: ${v.title}')">
-<div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div>
-<div class="video-label">${v.title}</div>
-<div class="video-duration">${v.duration}</div>
-</div>`).join('\n')}
+${VIDEOS.map(v => `<div class="video-card"><iframe src="${v.url}" title="${v.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`).join('\n')}
 </div>
 </div>
 </section>`;
