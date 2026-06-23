@@ -910,4 +910,20 @@ BLOG_POSTS.forEach(b => {
   console.log('  ✓ /blog/' + b.slug);
 });
 
+// Sitemap
+const SITE = 'https://www.plasmabiolife.online';
+var urls = ['/', '/calculator', '/locations', '/privacy', '/terms', '/contact', '/about', '/blog'];
+CITIES.forEach(c => urls.push('/plasma-donation-' + c.slug));
+BLOG_POSTS.forEach(b => urls.push('/blog/' + b.slug));
+var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+urls.forEach(u => { sitemap += '  <url><loc>' + SITE + u + '</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>\n'; });
+sitemap += '</urlset>';
+fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap);
+console.log('  ✓ sitemap.xml (' + urls.length + ' URLs)');
+
+// Robots
+var robots = 'User-agent: *\nAllow: /\nSitemap: ' + SITE + '/sitemap.xml\n';
+fs.writeFileSync(path.join(dist, 'robots.txt'), robots);
+console.log('  ✓ robots.txt');
+
 console.log('Build complete — ' + (CITIES.length + STATIC_PAGES.length + 1 + BLOG_POSTS.length + 1) + ' pages generated');
