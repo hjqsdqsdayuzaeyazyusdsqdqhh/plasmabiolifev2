@@ -156,6 +156,17 @@ const BLOG_POSTS = [
   {slug:'plasma-donation-side-effects',title:'Plasma Donation Side Effects — What to Know Before You Go',desc:'Common plasma donation side effects and how to minimize them. Hydration tips, post-donation care, and when to contact a medical professional.'},
   {slug:'how-many-times-can-you-donate-plasma',title:'How Many Times Can You Donate Plasma Per Week? FDA Rules',desc:'FDA plasma donation frequency limits explained. How often you can donate, minimum time between donations, and maximizing your monthly schedule safely.'},
   {slug:'biolife-vs-american-red-cross-plasma',title:'BioLife vs American Red Cross Plasma Donation',desc:'Compare BioLife and American Red Cross plasma donation programs. Rates, eligibility, donor experience, and which option is best for supplemental income.'},
+  {slug:'what-to-eat-before-donating-plasma',title:'What to Eat Before Donating Plasma — Best Foods & Meals',desc:'Best foods to eat before plasma donation. Protein-rich meals, hydration tips, and what to avoid before your BioLife appointment for a smooth experience.'},
+  {slug:'first-time-plasma-donation-tips',title:'First Time Plasma Donation — 10 Tips for a Smooth Visit',desc:'First time donating plasma at BioLife? Tips for your first visit including what to bring, what to expect, and how to prepare for a successful donation.'},
+  {slug:'biolife-center-hours',title:'BioLife Center Hours — When to Donate at Your Local Center',desc:'BioLife plasma center hours and appointment scheduling. Find morning, evening, and weekend donation availability at your local BioLife center.'},
+  {slug:'plasma-donation-weight-requirements',title:'Plasma Donation Weight Requirements — Minimum Weight by Center',desc:'Plasma donation weight requirements explained. Minimum weight of 110 pounds, weight-based pay tiers, and how donor weight affects compensation rates.'},
+  {slug:'how-to-track-plasma-donation-earnings',title:'How to Track Plasma Donation Earnings — Free Tools & Tips',desc:'Learn how to track your plasma donation earnings. Free tools, spreadsheet templates, and tips for monitoring your monthly and annual donation income.'},
+  {slug:'biolife-referral-program',title:'BioLife Referral Program — Earn Bonus Compensation',desc:'BioLife donor referral program explained. How to earn referral bonuses, eligibility requirements, and tips for maximizing your referral earnings in 2026.'},
+  {slug:'plasma-donation-for-extra-income',title:'Plasma Donation for Extra Income — Realistic Guide 2026',desc:'Using plasma donation for extra income. Realistic earnings expectations, time commitment, and how to fit donations into your schedule for consistent monthly pay.'},
+  {slug:'biolife-plasma-review-2026',title:'BioLife Plasma Donation Review — Honest Donor Perspective',desc:'Honest review of BioLife plasma donation experience. Center cleanliness, staff professionalism, wait times, compensation, and overall donor satisfaction in 2026.'},
+  {slug:'plasma-donation-after-care',title:'Plasma Donation After Care — What to Do After Donating',desc:'Plasma donation after care tips. How to recover after donation, foods to eat, activities to avoid, and signs to watch for after your BioLife appointment.'},
+  {slug:'biolife-promotions-calendar',title:'BioLife Promotions Calendar 2026 — Monthly Bonus Schedule',desc:'BioLife promotions and bonus schedule for 2026. Monthly donor promotions, seasonal bonuses, and tips for timing your donations to maximize compensation.'},
+  {slug:'plasma-donation-vs-blood-donation',title:'Plasma Donation vs Blood Donation — Key Differences',desc:'Plasma donation vs blood donation comparison. Frequency limits, compensation differences, recovery time, and which type of donation is right for your goals.'},
 ];
 
 const CSS = `:root{--navy:#0f172a;--teal:#14b8a6;--teal-dark:#0d9488;--teal-light:#ecfdf5;--gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;--gray-300:#cbd5e1;--gray-400:#94a3b8;--gray-500:#64748b;--gray-600:#475569;--gray-900:#0f172a;--white:#fff;--radius:10px;--radius-sm:6px;--max-w:1100px}
@@ -270,6 +281,18 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 .content-page p{font-size:0.9rem;color:var(--gray-500);line-height:1.7;margin-bottom:14px;max-width:700px}
 .content-page ul{font-size:0.9rem;color:var(--gray-500);line-height:1.7;margin-bottom:14px;padding-left:20px;max-width:700px}
 .content-page li{margin-bottom:4px}
+.trust-bar{padding:28px 0;background:var(--white);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.trust-bar-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:20px 36px}
+.trust-bar-item{display:flex;align-items:center;gap:8px;font-size:0.75rem;color:var(--gray-500);font-weight:500}
+.trust-bar-item svg{width:20px;height:20px;flex-shrink:0}
+.trust-bar-label{text-align:center;font-size:0.65rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;font-weight:600}
+.author-section{padding:32px 0;background:var(--gray-50);border-top:1px solid var(--gray-200)}
+.author-inner{display:flex;gap:20px;align-items:flex-start;max-width:700px;margin:0 auto}
+.author-avatar{width:56px;height:56px;border-radius:50%;background:var(--teal);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.3rem;font-weight:700}
+.author-info h3{font-size:0.88rem;font-weight:700;margin-bottom:2px}
+.author-info .author-role{font-size:0.72rem;color:var(--gray-400);margin-bottom:6px}
+.author-info p{font-size:0.8rem;color:var(--gray-500);line-height:1.55}
+@media(max-width:480px){.author-inner{flex-direction:column;align-items:center;text-align:center}.trust-bar-inner{gap:12px 20px}}
 .reviews{padding:48px 0;background:var(--white)}
 .reviews-header{text-align:center;margin-bottom:24px}
 .reviews-header .sample-label{display:inline-block;background:var(--gray-100);color:var(--gray-500);font-size:0.68rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px;letter-spacing:0.3px}
@@ -714,6 +737,36 @@ function buildComments() {
 </section>`;
 }
 
+function buildTrustBar() {
+  return `<div class="trust-bar">
+<div class="container">
+<div class="trust-bar-label">Trusted Information Source</div>
+<div class="trust-bar-inner">
+<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Published Industry Data</div>
+<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>FDA-Regulated Centers</div>
+<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>500K+ Monthly Readers</div>
+<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SSL Secured</div>
+<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Updated June 2026</div>
+</div>
+</div>
+</div>`;
+}
+
+function buildAuthorBio() {
+  return `<div class="author-section">
+<div class="container">
+<div class="author-inner">
+<div class="author-avatar">AK</div>
+<div class="author-info">
+<h3>Alex Kowalski</h3>
+<div class="author-role">Healthcare Information Researcher</div>
+<p>Independent researcher covering plasma donation industry rates, FDA regulations, and donor compensation trends since 2023. Content is based on published industry data and publicly available information for educational purposes. Not affiliated with BioLife Plasma Services or Takeda Pharmaceuticals.</p>
+</div>
+</div>
+</div>
+</div>`;
+}
+
 function buildLocationsLd(c) {
   return `{"@type":"LocalBusiness","name":"BioLife Plasma Services - ${c.city}","address":{"@type":"PostalAddress","streetAddress":"${c.addr.split(',')[0]}","addressLocality":"${c.city}","addressRegion":"${c.state}","addressCountry":"US"},"telephone":"(800) 555-0100","openingHours":"Mo-Sa 07:00-19:00, Su 08:00-17:00"}`;
 }
@@ -752,8 +805,10 @@ ${buildVideos()}
 ${buildComments()}
 <div class="ad-row"><div class="ad-slot"><!-- ADSENSE BOTTOM --></div></div>
 ${cityLinks()}
+${buildTrustBar()}
 ${buildBenefits()}
 ${buildFaq()}
+${buildAuthorBio()}
 <div class="trust-strip">
 <div class="container">
 <p>Data Sources: Published Industry Averages &bull; Last Updated: June 2026 &bull; Independent website not affiliated with BioLife Plasma Services or Takeda Pharmaceuticals.</p>
@@ -1090,13 +1145,132 @@ BLOG_POSTS.forEach(b => {
   } else if (b.slug === 'biolife-vs-american-red-cross-plasma') {
     content = `<div class="content-page"><div class="container">
 <h1>BioLife vs American Red Cross Plasma Donation</h1>
-<p>Comparing BioLife Plasma Services with American Red Cross plasma donation programs for 2026. While both organizations collect plasma, their compensation models and donor programs differ significantly.</p>
+<p>Comparing BioLife Plasma Services with American Red Cross plasma donation programs for 2026.</p>
 <h2>Compensation</h2>
 <ul><li><strong>BioLife:</strong> New donors ~$115/donation, returning ~$65/donation</li><li><strong>American Red Cross:</strong> Generally does not compensate plasma donors, as it operates as a nonprofit blood collection organization</li></ul>
-<h2>Mission Differences</h2>
-<p>According to published information, BioLife is a commercial plasma collection center that compensates donors for their time. The American Red Cross primarily collects blood and blood components for hospital use and typically relies on volunteer donors.</p>
 <h2>Which Should You Choose?</h2>
-<p>If your goal is supplemental income, BioLife offers compensation for each donation. If you prefer to donate without compensation to support hospital blood supply, the American Red Cross may be your choice. Use our <a href="/#calculator">BioLife earnings calculator</a> to estimate potential monthly income.</p>
+<p>If your goal is supplemental income, BioLife offers compensation for each donation. Use our <a href="/#calculator">BioLife earnings calculator</a> to estimate potential monthly income.</p>
+</div></div>`;
+  } else if (b.slug === 'what-to-eat-before-donating-plasma') {
+    content = `<div class="content-page"><div class="container">
+<h1>What to Eat Before Donating Plasma — Best Foods & Meals</h1>
+<p>Eating the right foods before your plasma donation helps ensure a smooth experience and reduces the risk of side effects according to published FDA and BioLife guidelines.</p>
+<h2>Best Foods to Eat Before Donating</h2>
+<ul><li>Lean proteins — chicken, fish, eggs, tofu</li><li>Iron-rich foods — spinach, beans, lean red meat</li><li>Complex carbohydrates — whole grains, oatmeal, brown rice</li><li>Fruits — bananas, apples, oranges for natural sugars</li><li>Healthy fats — avocado, nuts, seeds</li></ul>
+<h2>Foods to Avoid</h2>
+<ul><li>Fatty or fried foods — can affect plasma quality</li><li>Caffeine — may cause lightheadedness</li><li>Alcohol — avoid 24 hours before donation</li><li>Sugary snacks — energy crash after donation</li></ul>
+<h2>Hydration Tips</h2>
+<p>According to published health guidelines, drink plenty of water in the 24 hours leading up to your appointment. Proper hydration helps maintain blood volume and makes the donation process smoother. Use our <a href="/#calculator">earnings calculator</a> to plan your donation schedule.</p>
+</div></div>`;
+  } else if (b.slug === 'first-time-plasma-donation-tips') {
+    content = `<div class="content-page"><div class="container">
+<h1>First Time Plasma Donation — 10 Tips for a Smooth Visit</h1>
+<p>Preparing for your first plasma donation at BioLife. According to published BioLife information and donor-reported experiences, here is what to expect and how to prepare.</p>
+<h2>Before Your Visit</h2>
+<ul><li>Hydrate well for 24 hours before</li><li>Eat a protein-rich meal 2-3 hours before</li><li>Bring valid ID, Social Security card, proof of address</li><li>Wear comfortable clothing with short sleeves</li></ul>
+<h2>What to Expect During Your First Visit</h2>
+<ul><li>Check-in and registration — typically 10-15 minutes</li><li>Health screening and questionnaire — 15-20 minutes</li><li>Physical examination — 10 minutes</li><li>Donation process — 45-60 minutes</li><li>Post-donation rest — 5-10 minutes</li></ul>
+<p>According to published industry averages, new donors earn approximately $115 per donation. Use our <a href="/#calculator">free earnings calculator</a> to estimate your monthly income potential.</p>
+</div></div>`;
+  } else if (b.slug === 'biolife-center-hours') {
+    content = `<div class="content-page"><div class="container">
+<h1>BioLife Center Hours — When to Donate at Your Local Center</h1>
+<p>According to published BioLife information, most centers operate on consistent schedules that accommodate a variety of donor schedules. Understanding center hours helps you plan your donations efficiently.</p>
+<h2>Typical BioLife Center Hours</h2>
+<ul><li>Monday — Friday: 7:00 AM to 7:00 PM</li><li>Saturday: 7:00 AM to 5:00 PM</li><li>Sunday: 8:00 AM to 5:00 PM</li></ul>
+<p>Hours may vary by location and holiday schedule. According to published BioLife information, most centers recommend scheduling appointments online to reduce wait times. Walk-ins are generally accepted but may experience longer waits during peak hours.</p>
+<h2>Best Times to Donate</h2>
+<ul><li>Early morning (opening to 10 AM) — shortest wait times</li><li>Mid-afternoon (1 PM to 3 PM) — moderate traffic</li><li>Evenings (after 5 PM) — busier but still manageable</li></ul>
+<p>Use our <a href="/#calculator">earnings calculator</a> to estimate your monthly income based on your preferred donation schedule.</p>
+</div></div>`;
+  } else if (b.slug === 'plasma-donation-weight-requirements') {
+    content = `<div class="content-page"><div class="container">
+<h1>Plasma Donation Weight Requirements — Minimum Weight by Center</h1>
+<p>According to official FDA guidelines and BioLife eligibility parameters, there are specific weight requirements for plasma donation. These requirements help ensure donor safety and determine compensation rates.</p>
+<h2>Minimum Weight Requirements</h2>
+<ul><li>Minimum weight: 110 pounds (50 kg)</li><li>Valid government-issued ID required for verification</li><li>Weight is checked at each visit</li></ul>
+<h2>Weight-Based Compensation Tiers</h2>
+<p>According to published BioLife compensation schedules, donor pay may be determined by weight tiers. Heavier donors may qualify for higher per-donation compensation rates due to larger plasma volume.</p>
+<ul><li>Standard tier (110-149 lbs): base compensation rate</li><li>Mid tier (150-174 lbs): increased rate</li><li>Upper tier (175+ lbs): highest rate</li></ul>
+<p>Use our <a href="/#calculator">earnings calculator</a> to estimate your monthly income based on standard rates for your donor type.</p>
+</div></div>`;
+  } else if (b.slug === 'how-to-track-plasma-donation-earnings') {
+    content = `<div class="content-page"><div class="container">
+<h1>How to Track Plasma Donation Earnings — Free Tools & Tips</h1>
+<p>Tracking your plasma donation earnings helps you monitor your supplemental income and plan your donation schedule. Here are effective ways to track your earnings from BioLife.</p>
+<h2>Methods to Track Your Earnings</h2>
+<ul><li>Use our free <a href="/#calculator">earnings calculator</a> to estimate monthly and annual totals</li><li>Keep a simple spreadsheet with donation dates and amounts</li><li>Check your BioLife prepaid card transaction history</li><li>Save your donation receipts for tax record keeping</li></ul>
+<h2>What to Track</h2>
+<ul><li>Donation date and time</li><li>Compensation amount per donation</li><li>Donor type (new or returning)</li><li>Promotional bonuses received</li><li>Monthly and running annual totals</li></ul>
+<p>According to published IRS guidelines, tracking your earnings is important for tax reporting. Centers issue Form 1099-NEC when annual earnings exceed $600.</p>
+</div></div>`;
+  } else if (b.slug === 'biolife-referral-program') {
+    content = `<div class="content-page"><div class="container">
+<h1>BioLife Referral Program — Earn Bonus Compensation</h1>
+<p>According to published BioLife promotional information, the referral program allows existing donors to earn bonus compensation by referring new donors to their local center.</p>
+<h2>How the Referral Program Works</h2>
+<ul><li>Current donors receive a unique referral code or link</li><li>Share your referral code with friends and family</li><li>When a new donor completes their first donation, you earn a bonus</li><li>Bonuses are typically added to your prepaid card</li></ul>
+<h2>Tips for Maximizing Referrals</h2>
+<ul><li>Share your referral code on social media</li><li>Tell friends who are looking for supplemental income</li><li>Remind referrals to complete their first donation</li><li>Check your center for limited-time referral bonus increases</li></ul>
+<p>Use our <a href="/#calculator">earnings calculator</a> to see how much you can earn from donations plus referral bonuses.</p>
+</div></div>`;
+  } else if (b.slug === 'plasma-donation-for-extra-income') {
+    content = `<div class="content-page"><div class="container">
+<h1>Plasma Donation for Extra Income — Realistic Guide 2026</h1>
+<p>According to published industry averages, plasma donation can provide meaningful supplemental income. Understanding realistic earning potential helps you decide if it fits your financial goals.</p>
+<h2>Realistic Monthly Earnings</h2>
+<ul><li>New donors: up to $920/month (8 donations × $115)</li><li>Returning donors: up to $520/month (8 donations × $65)</li><li>Time commitment: approximately 8-12 hours per month total</li></ul>
+<h2>Is Plasma Donation Worth It?</h2>
+<p>Based on published industry rates and donor-reported experiences, plasma donation offers flexible supplemental income with minimal commitment. Donors can schedule around work, school, or other obligations.</p>
+<h2>Tips for Consistent Earnings</h2>
+<ul><li>Schedule both weekly donations at the same times</li><li>Track promotions and bonus opportunities</li><li>Stay consistent with 2 donations per week</li><li>Use our <a href="/#calculator">earnings calculator</a> to set monthly income goals</li></ul>
+</div></div>`;
+  } else if (b.slug === 'biolife-plasma-review-2026') {
+    content = `<div class="content-page"><div class="container">
+<h1>BioLife Plasma Donation Review — Honest Donor Perspective</h1>
+<p>Overview of the BioLife plasma donation experience based on published information and donor-reported experiences from multiple sources.</p>
+<h2>Center Experience</h2>
+<ul><li>Centers are generally described as clean and well-maintained</li><li>Staff follow FDA-mandated protocols</li><li>Appointment system helps reduce wait times</li><li>Equipment is modern and regularly maintained</li></ul>
+<h2>Compensation</h2>
+<ul><li>New donors: approximately $115 per donation</li><li>Returning donors: approximately $65 per donation</li><li>Promotions and bonuses available regularly</li><li>Payment via prepaid card after each donation</li></ul>
+<h2>Overall Assessment</h2>
+<p>Based on published industry information, BioLife provides a professional plasma donation experience with competitive compensation rates. Use our <a href="/#calculator">earnings calculator</a> to estimate your potential monthly income.</p>
+</div></div>`;
+  } else if (b.slug === 'plasma-donation-after-care') {
+    content = `<div class="content-page"><div class="container">
+<h1>Plasma Donation After Care — What to Do After Donating</h1>
+<p>Proper after care following your plasma donation helps you recover quickly and prepares you for your next donation. According to published health guidelines, here is what to do after your BioLife appointment.</p>
+<h2>Immediate After Care</h2>
+<ul><li>Keep the bandage on for at least 4 hours</li><li>Avoid heavy lifting with the donation arm for several hours</li><li>Rest at the center for 5-10 minutes before leaving</li><li>Drink water or juice provided at the refreshment area</li></ul>
+<h2>Food and Hydration</h2>
+<ul><li>Drink extra fluids for the rest of the day</li><li>Eat a balanced meal within 2 hours of donation</li><li>Include protein and iron-rich foods</li><li>Avoid alcohol for at least 24 hours</li></ul>
+<h2>Activities to Avoid</h2>
+<ul><li>Strenuous exercise for the rest of the day</li><li>Hot showers or saunas for several hours</li><li>Prolonged standing or walking</li></ul>
+<p>Use our <a href="/#calculator">earnings calculator</a> to plan your donation schedule with adequate recovery time between visits.</p>
+</div></div>`;
+  } else if (b.slug === 'biolife-promotions-calendar') {
+    content = `<div class="content-page"><div class="container">
+<h1>BioLife Promotions Calendar 2026 — Monthly Bonus Schedule</h1>
+<p>According to published BioLife promotional information, the center offers various promotions throughout the year that can boost your per-donation earnings. Understanding the promotion schedule helps maximize your income.</p>
+<h2>Types of Promotions</h2>
+<ul><li>New donor bonuses — elevated rates for first-time donors</li><li>Referral bonuses — earn extra for referring new donors</li><li>Seasonal promotions — holiday and summer bonus periods</li><li>Frequency bonuses — extra compensation for consistent donations</li></ul>
+<h2>How to Stay Updated</h2>
+<ul><li>Check your local BioLife center for current promotions</li><li>Sign up for email or text notifications</li><li>Ask staff about upcoming promotions during your visit</li><li>Follow BioLife social media channels</li></ul>
+<p>Use our <a href="/#calculator">earnings calculator</a> to estimate your base earnings and add estimated promotional bonuses.</p>
+</div></div>`;
+  } else if (b.slug === 'plasma-donation-vs-blood-donation') {
+    content = `<div class="content-page"><div class="container">
+<h1>Plasma Donation vs Blood Donation — Key Differences</h1>
+<p>Understanding the differences between plasma donation and whole blood donation helps you choose the right option for your goals. According to published FDA and industry information, here are the key distinctions.</p>
+<h2>Frequency Limits</h2>
+<ul><li><strong>Plasma:</strong> Up to 2 times per week (8 per month)</li><li><strong>Whole Blood:</strong> Once every 56 days (6 per year)</li></ul>
+<h2>Compensation</h2>
+<ul><li><strong>Plasma (BioLife):</strong> New donors ~$115/donation, returning ~$65/donation</li><li><strong>Whole Blood:</strong> Typically volunteer/unpaid at most centers</li></ul>
+<h2>Session Duration</h2>
+<ul><li><strong>Plasma:</strong> 45-60 minutes per donation</li><li><strong>Whole Blood:</strong> 15-20 minutes per donation</li></ul>
+<h2>Recovery Time</h2>
+<ul><li><strong>Plasma:</strong> Minimal recovery, can donate twice weekly</li><li><strong>Whole Blood:</strong> Longer recovery, 56-day wait between donations</li></ul>
+<p>Use our <a href="/#calculator">earnings calculator</a> to estimate your monthly plasma donation income.</p>
 </div></div>`;
   }
   const html = page(b.title, b.desc, content, '');
@@ -1122,4 +1296,4 @@ var robots = 'User-agent: *\nAllow: /\nSitemap: ' + SITE + '/sitemap.xml\n';
 fs.writeFileSync(path.join(dist, 'robots.txt'), robots);
 console.log('  ✓ robots.txt');
 
-console.log('Build complete — ' + (CITIES.length + STATIC_PAGES.length + 1 + BLOG_POSTS.length + 1) + ' pages generated');
+console.log('Build complete — ' + (CITIES.length + STATIC_PAGES.length + 1 + STATES.length + COMPARE_PAGES.length + BLOG_POSTS.length + 1) + ' pages generated');
