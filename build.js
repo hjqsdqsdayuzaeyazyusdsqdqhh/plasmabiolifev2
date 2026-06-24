@@ -632,6 +632,23 @@ ${CITIES.map(c => `<a href="/plasma-donation-${c.slug}">${c.city}, ${c.state}</a
 </div>`;
 }
 
+function buildDirectory() {
+  return `<section class="directory" id="locations">
+<div class="container">
+<h2 class="section-title">Find a BioLife Center</h2>
+<div class="dir-grid">
+${CITIES.slice(0,15).map(c => `<div class="dir-card">
+<h3>${c.city}, ${c.state}</h3>
+<div class="addr">${c.addr}</div>
+<div class="hours">Mon-Sat 7am-7pm, Sun 8am-5pm</div>
+<a href="/plasma-donation-${c.slug}" class="btn-sm">View Center</a>
+</div>`).join('\n')}
+</div>
+<div style="text-align:center;margin-top:20px"><a href="/locations" class="btn btn-outline">View All 100+ Locations →</a></div>
+</div>
+</section>`;
+}
+
 function buildBenefits() {
   return `<section class="benefits">
 <div class="container">
@@ -806,6 +823,7 @@ ${buildComments()}
 <div class="ad-row"><div class="ad-slot"><!-- ADSENSE BOTTOM --></div></div>
 ${cityLinks()}
 ${buildTrustBar()}
+${buildDirectory()}
 ${buildBenefits()}
 ${buildFaq()}
 ${buildAuthorBio()}
