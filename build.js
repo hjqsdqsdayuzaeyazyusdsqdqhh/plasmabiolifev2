@@ -105,8 +105,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubunt
 .nav-links{display:flex;gap:24px;list-style:none}
 .nav-links a{color:var(--gray-500);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .15s}
 .nav-links a:hover{color:var(--teal)}
-.disclaimer-bar{background:#fef2f2;border-bottom:1px solid #fecaca;padding:8px 0}
-.disclaimer-bar p{font-size:0.72rem;color:#991b1b;line-height:1.5;text-align:center;max-width:900px;margin:0 auto}
 .hero{padding:56px 0 48px;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--teal-light);color:var(--teal-dark);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:16px}
 .hero h1{font-size:clamp(1.6rem,4.5vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:14px;letter-spacing:-0.6px;color:var(--gray-900)}
@@ -274,12 +272,6 @@ const NAV = `<nav class="nav">
 </ul>
 </div>
 </nav>`;
-
-const DISCLAIMER = `<div class="disclaimer-bar">
-<div class="container">
-<p><strong>Disclaimer:</strong> Independent informational website. <strong>NOT affiliated</strong> with BioLife Plasma Services or Takeda Pharmaceuticals.</p>
-</div>
-</div>`;
 
 const FOOTER = `<footer>
 <div class="footer-inner">
@@ -616,7 +608,6 @@ function page(title, desc, bodyContent, extraLd) {
 </head>
 <body>
 ${NAV}
-${DISCLAIMER}
 ${bodyContent}
 <div class="ad-row"><div class="ad-slot"><!-- ADSENSE BETWEEN SECTIONS --></div></div>
 ${buildReviews()}
