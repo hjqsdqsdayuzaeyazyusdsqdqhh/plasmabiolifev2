@@ -54,7 +54,6 @@ const CITIES = [
   {city:'Jacksonville',state:'FL',slug:'jacksonville-fl',addr:'9550 Regency Square Blvd, Jacksonville, FL 32225'},
   {city:'Raleigh',state:'NC',slug:'raleigh-nc',addr:'5430 Wade Park Blvd, Raleigh, NC 27607'},
   {city:'Memphis',state:'TN',slug:'memphis-tn',addr:'6080 Mt Moriah Rd, Memphis, TN 38115'},
-  {city:'Louisville',state:'KY',slug:'louisville-ky',addr:'4600 Shelbyville Rd, Louisville, KY 40207'},
   {city:'Tucson',state:'AZ',slug:'tucson-az',addr:'4886 E Speedway Blvd, Tucson, AZ 85712'},
   {city:'Fresno',state:'CA',slug:'fresno-ca',addr:'7460 N Cedar Ave, Fresno, CA 93720'},
   {city:'Mesa',state:'AZ',slug:'mesa-az',addr:'1130 S Gilbert Rd, Mesa, AZ 85204'},
@@ -75,6 +74,68 @@ const CITIES = [
   {city:'Knoxville',state:'TN',slug:'knoxville-tn',addr:'7409 Chapman Hwy, Knoxville, TN 37920'},
   {city:'Dayton',state:'OH',slug:'dayton-oh',addr:'3100 Wilmington Pike, Dayton, OH 45429'},
   {city:'Akron',state:'OH',slug:'akron-oh',addr:'1740 Brittain Rd, Akron, OH 44310'},
+  {city:'Cincinnati',state:'OH',slug:'cincinnati-oh',addr:'8000 Vine St, Cincinnati, OH 45216'},
+  {city:'Cleveland',state:'OH',slug:'cleveland-oh',addr:'13900 Cedar Rd, Cleveland, OH 44118'},
+  {city:'Toledo',state:'OH',slug:'toledo-oh',addr:'3430 Secor Rd, Toledo, OH 43606'},
+  {city:'Madison',state:'WI',slug:'madison-wi',addr:'2100 E Springs Dr, Madison, WI 53704'},
+  {city:'Grand Rapids',state:'MI',slug:'grand-rapids-mi',addr:'3660 28th St SE, Grand Rapids, MI 49512'},
+  {city:'Ann Arbor',state:'MI',slug:'ann-arbor-mi',addr:'2450 Washtenaw Ave, Ann Arbor, MI 48104'},
+  {city:'Des Moines',state:'IA',slug:'des-moines-ia',addr:'2600 E Euclid Ave, Des Moines, IA 50317'},
+  {city:'Cedar Rapids',state:'IA',slug:'cedar-rapids-ia',addr:'3330 16th Ave SW, Cedar Rapids, IA 52404'},
+  {city:'Springfield',state:'MO',slug:'springfield-mo',addr:'2820 S Glenstone Ave, Springfield, MO 65804'},
+  {city:'Jackson',state:'MS',slug:'jackson-ms',addr:'5330 I-55 N, Jackson, MS 39211'},
+  {city:'Montgomery',state:'AL',slug:'montgomery-al',addr:'2900 E South Blvd, Montgomery, AL 36116'},
+  {city:'Columbia',state:'SC',slug:'columbia-sc',addr:'5600 Forest Dr, Columbia, SC 29206'},
+  {city:'Greenville',state:'SC',slug:'greenville-sc',addr:'2800 Laurens Rd, Greenville, SC 29607'},
+  {city:'Norfolk',state:'VA',slug:'norfolk-va',addr:'5700 E Virginia Beach Blvd, Norfolk, VA 23502'},
+  {city:'Virginia Beach',state:'VA',slug:'virginia-beach-va',addr:'800 Independence Blvd, Virginia Beach, VA 23455'},
+  {city:'Rochester',state:'NY',slug:'rochester-ny',addr:'2400 W Ridge Rd, Rochester, NY 14626'},
+  {city:'Syracuse',state:'NY',slug:'syracuse-ny',addr:'4200 Walters Rd, Syracuse, NY 13219'},
+  {city:'Albany',state:'NY',slug:'albany-ny',addr:'1550 Central Ave, Albany, NY 12205'},
+  {city:'Hartford',state:'CT',slug:'hartford-ct',addr:'100 Washington St, Hartford, CT 06106'},
+  {city:'New Haven',state:'CT',slug:'new-haven-ct',addr:'400 Ferry St, New Haven, CT 06513'},
+  {city:'Bridgeport',state:'CT',slug:'bridgeport-ct',addr:'2100 Main St, Bridgeport, CT 06606'},
+  {city:'Worcester',state:'MA',slug:'worcester-ma',addr:'500 Lincoln St, Worcester, MA 01605'},
+  {city:'Manchester',state:'NH',slug:'manchester-nh',addr:'1500 S Willow St, Manchester, NH 03103'},
+  {city:'Portland',state:'ME',slug:'portland-me',addr:'200 Running Hill Rd, Portland, ME 04106'},
+  {city:'Burlington',state:'VT',slug:'burlington-vt',addr:'100 Dorset St, Burlington, VT 05403'},
+  {city:'Anchorage',state:'AK',slug:'anchorage-ak',addr:'1200 N Muldoon Rd, Anchorage, AK 99504'},
+  {city:'Honolulu',state:'HI',slug:'honolulu-hi',addr:'1450 Ala Moana Blvd, Honolulu, HI 96814'},
+  {city:'Wilmington',state:'DE',slug:'wilmington-de',addr:'4737 Concord Pike, Wilmington, DE 19803'},
+  {city:'Newark',state:'NJ',slug:'newark-nj',addr:'50 Union Ave, Newark, NJ 07105'},
+  {city:'Jersey City',state:'NJ',slug:'jersey-city-nj',addr:'700 Grand St, Jersey City, NJ 07304'},
+  {city:'Spokane',state:'WA',slug:'spokane-wa',addr:'4809 N Division St, Spokane, WA 99207'},
+  {city:'Tacoma',state:'WA',slug:'tacoma-wa',addr:'3802 S 74th St, Tacoma, WA 98409'},
+  {city:'Billings',state:'MT',slug:'billings-mt',addr:'2425 King Ave W, Billings, MT 59102'},
+  {city:'Sioux Falls',state:'SD',slug:'sioux-falls-sd',addr:'3400 S Minnesota Ave, Sioux Falls, SD 57105'},
+  {city:'Fargo',state:'ND',slug:'fargo-nd',addr:'4200 13th Ave S, Fargo, ND 58103'},
+  {city:'Cheyenne',state:'WY',slug:'cheyenne-wy',addr:'1400 Dell Range Blvd, Cheyenne, WY 82009'},
+  {city:'Reno',state:'NV',slug:'reno-nv',addr:'5155 Mae Anne Ave, Reno, NV 89523'},
+  {city:'Santa Fe',state:'NM',slug:'santa-fe-nm',addr:'4600 Cerillos Rd, Santa Fe, NM 87507'},
+  {city:'Augusta',state:'GA',slug:'augusta-ga',addr:'3450 Wrightsboro Rd, Augusta, GA 30909'},
+  {city:'Savannah',state:'GA',slug:'savannah-ga',addr:'7800 Abercorn St, Savannah, GA 31406'},
+  {city:'Huntsville',state:'AL',slug:'huntsville-al',addr:'6100 University Dr, Huntsville, AL 35806'},
+  {city:'Chattanooga',state:'TN',slug:'chattanooga-tn',addr:'2100 Hamilton Place Blvd, Chattanooga, TN 37421'},
+  {city:'Lexington',state:'KY',slug:'lexington-ky',addr:'3100 Richmond Rd, Lexington, KY 40509'},
+  {city:'Shreveport',state:'LA',slug:'shreveport-la',addr:'7200 Youree Dr, Shreveport, LA 71105'},
+  {city:'Amarillo',state:'TX',slug:'amarillo-tx',addr:'2800 SW 3rd Ave, Amarillo, TX 79106'},
+  {city:'Brownsville',state:'TX',slug:'brownsville-tx',addr:'1900 Boca Chica Blvd, Brownsville, TX 78521'},
+  {city:'Laredo',state:'TX',slug:'laredo-tx',addr:'5300 San Dario Ave, Laredo, TX 78041'},
+  {city:'Garland',state:'TX',slug:'garland-tx',addr:'5450 N Garland Ave, Garland, TX 75040'},
+  {city:'Plano',state:'TX',slug:'plano-tx',addr:'3100 Independence Pkwy, Plano, TX 75075'},
+];
+
+const STATES = [
+  'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'
+].map(s => ({name: s, slug: s.toLowerCase().replace(/\s+/g, '-')}));
+
+const COMPARE_PAGES = [
+  {slug:'biolife-vs-csl-plasma',title:'BioLife vs CSL Plasma — Which Pays More in 2026?',desc:'Compare BioLife and CSL Plasma donor compensation rates for 2026. Side-by-side analysis of pay, promotions, locations, and donor experience.'},
+  {slug:'biolife-vs-grifols-plasma',title:'BioLife vs Grifols Plasma — Comparison Guide 2026',desc:'BioLife vs Grifols plasma donation comparison. Rates, bonuses, center experience, and which plasma center pays more for new and returning donors.'},
+  {slug:'biolife-new-donor-bonus-2026',title:'BioLife New Donor Bonus 2026 — Complete Guide',desc:'Complete guide to BioLife new donor bonuses in 2026. How much you can earn, eligibility requirements, and tips to maximize your first-month payout.'},
+  {slug:'how-to-prepare-for-plasma-donation',title:'How to Prepare for Plasma Donation — 10 Essential Tips',desc:'Learn how to prepare for your first plasma donation. Hydration, diet, what to bring, and what to expect during your visit at BioLife centers.'},
+  {slug:'plasma-donation-for-college-students',title:'Plasma Donation for College Students — Earn Extra Cash',desc:'Guide to plasma donation for college students. Flexible scheduling near campus, earnings potential, and how to balance donations with classes.'},
+  {slug:'weight-based-plasma-pay',title:'Weight-Based Plasma Pay — How BioLife Rates Work',desc:'How BioLife weight-based plasma pay works. Donor compensation tiers explained, how weight affects your per-donation rate, and what to expect.'},
 ];
 
 const STATIC_PAGES = [
@@ -91,6 +152,10 @@ const BLOG_POSTS = [
   {slug:'new-donor-bonus-guide',title:'BioLife New Donor Bonuses 2026 — How to Maximize Your First Month',desc:'Everything you need to know about BioLife new donor promotions in 2026. Learn how first-time donors can earn up to $920 in their first month.'},
   {slug:'plasma-donation-requirements',title:'Plasma Donation Requirements — Complete 2026 Eligibility Guide',desc:'Comprehensive guide to plasma donation eligibility requirements. Age, weight, ID, health screening, and frequency limits explained for first-time donors.'},
   {slug:'plasma-donation-tax-guide',title:'Is Plasma Donation Taxable? IRS Rules for 1099 Income',desc:'Learn about plasma donation tax implications. IRS rules on 1099-NEC forms, reporting requirements, and how to handle your donation income during tax season.'},
+  {slug:'biolife-pay-schedule',title:'BioLife Pay Schedule — When and How You Get Paid',desc:'BioLife compensation schedule explained. How donation payments work, prepaid card deposits, payment timing, and what to expect after each donation.'},
+  {slug:'plasma-donation-side-effects',title:'Plasma Donation Side Effects — What to Know Before You Go',desc:'Common plasma donation side effects and how to minimize them. Hydration tips, post-donation care, and when to contact a medical professional.'},
+  {slug:'how-many-times-can-you-donate-plasma',title:'How Many Times Can You Donate Plasma Per Week? FDA Rules',desc:'FDA plasma donation frequency limits explained. How often you can donate, minimum time between donations, and maximizing your monthly schedule safely.'},
+  {slug:'biolife-vs-american-red-cross-plasma',title:'BioLife vs American Red Cross Plasma Donation',desc:'Compare BioLife and American Red Cross plasma donation programs. Rates, eligibility, donor experience, and which option is best for supplemental income.'},
 ];
 
 const CSS = `:root{--navy:#0f172a;--teal:#14b8a6;--teal-dark:#0d9488;--teal-light:#ecfdf5;--gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;--gray-300:#cbd5e1;--gray-400:#94a3b8;--gray-500:#64748b;--gray-600:#475569;--gray-900:#0f172a;--white:#fff;--radius:10px;--radius-sm:6px;--max-w:1100px}
@@ -443,6 +508,73 @@ function buildCityContent(c) {
 </div>`;
 }
 
+function buildStateContent(s) {
+  const displayState = s.name;
+  return `<div class="container" style="padding:40px 24px">
+<h1>Plasma Donation in ${displayState} — 2026 Rates & Centers</h1>
+<p style="font-size:0.9rem;color:var(--gray-500);max-width:700px;line-height:1.7">Find plasma donation information for <strong>${displayState}</strong>. According to published industry averages, new BioLife donors earn approximately $115 per donation and returning donors approximately $65 per donation in 2026. Below are the major BioLife center locations in ${displayState} and estimated earnings.</p>
+<div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px;margin:24px 0;max-width:500px">
+<div style="font-size:0.85rem;font-weight:700;margin-bottom:8px">Estimated ${displayState} Donor Rates</div>
+<div style="font-size:0.82rem;color:var(--gray-500);margin-bottom:4px">New Donors: approximately $115 per donation</div>
+<div style="font-size:0.82rem;color:var(--gray-500);margin-bottom:4px">Returning Donors: approximately $65 per donation</div>
+<div style="font-size:0.78rem;color:var(--gray-400);margin-bottom:12px">Monthly max (8 visits): New $920 / Returning $520</div>
+<a href="/#calculator" class="btn-sm">Calculate Your Earnings</a>
+</div>
+<h2>Donation Centers in ${displayState}</h2>
+<p>BioLife operates multiple FDA-licensed collection centers across ${displayState}. According to published BioLife information, each center follows standard operating procedures and offers appointments during extended weekday and weekend hours. Use our <a href="/#calculator">earnings calculator</a> to estimate your potential monthly income based on ${displayState} rates.</p>
+<p>According to published FDA and BioLife eligibility parameters, donors in ${displayState} must be at least 18 years old, weigh a minimum of 110 pounds, and present valid identification. Compensation varies by weight-based pay tables and current center promotions.</p>
+<h2>Frequently Asked Questions About Donating in ${displayState}</h2>
+<h3>How much does BioLife pay in ${displayState}?</h3>
+<p>According to published industry averages, BioLife pays new donors approximately $115 per donation and returning donors approximately $65 per donation in ${displayState} for 2026. Actual rates may vary by location, donor weight, and current promotions.</p>
+<h3>How often can I donate in ${displayState}?</h3>
+<p>Official FDA guidelines generally allow plasma donation up to two times per week, with at least 48 hours between donations. Most ${displayState} donors average 4 to 8 donations per month.</p>
+</div>`;
+}
+
+function buildCompareContent(p) {
+  let content = `<div class="content-page"><div class="container"><h1>${p.title}</h1>`;
+  if (p.slug === 'biolife-vs-csl-plasma') {
+    content += `<p style="font-size:0.9rem;color:var(--gray-500);max-width:700px;line-height:1.7">Comprehensive comparison of BioLife Plasma Services and CSL Plasma donation centers for 2026. Understanding the differences in compensation, donor experience, and center availability can help you choose the right plasma donation center.</p>
+<h2>Compensation Comparison</h2>
+<p>According to published industry averages and donor-reported rates for 2026:</p>
+<ul><li><strong>BioLife:</strong> New donors ~$115/donation, returning ~$65/donation</li><li><strong>CSL Plasma:</strong> New donors ~$110/donation, returning ~$60/donation</li></ul>
+<h2>Center Locations</h2>
+<p>According to published BioLife information, the company operates hundreds of FDA-licensed centers across the United States. CSL Plasma similarly maintains a large network of donation centers. Availability varies by region and city.</p>
+<h2>Donor Experience</h2>
+<p>Both BioLife and CSL Plasma follow FDA-mandated screening and collection protocols. According to donor-reported experiences, wait times, staff professionalism, and center cleanliness are generally comparable across both chains. Use our <a href="/#calculator">earnings calculator</a> to estimate your potential earnings at either center.</p>`;
+  } else if (p.slug === 'biolife-vs-grifols-plasma') {
+    content += `<p style="font-size:0.9rem;color:var(--gray-500);max-width:700px;line-height:1.7">BioLife vs Grifols plasma donation comparison for 2026. Both are major plasma collection networks operating across the United States.</p>
+<h2>Compensation Comparison</h2>
+<ul><li><strong>BioLife:</strong> New donors ~$115/donation, returning ~$65/donation</li><li><strong>Grifols:</strong> New donors ~$100-$110/donation, returning ~$55-$65/donation</li></ul>
+<h2>Center Network</h2>
+<p>According to published information, BioLife operates hundreds of centers under the Takeda umbrella. Grifols operates its own network of plasma donation centers. Both follow FDA regulations and industry-standard compensation practices.</p>`;
+  } else if (p.slug === 'biolife-new-donor-bonus-2026') {
+    content += `<p>Complete guide to BioLife new donor promotions and bonuses for 2026. According to published promotional materials, new donor bonuses typically provide elevated per-donation compensation during the first several visits.</p>
+<h2>What to Expect as a New Donor</h2>
+<ul><li>First visit compensation: approximately $115 per donation</li><li>First-month potential: up to $920 (8 donations)</li><li>Promotional periods vary by location and season</li></ul>
+<p>New donor promotions are subject to change. Verify current offers with your local BioLife center. Use our <a href="/#calculator">free calculator</a> to estimate earnings.</p>`;
+  } else if (p.slug === 'how-to-prepare-for-plasma-donation') {
+    content += `<p>Essential tips for preparing for your first plasma donation at BioLife. Proper preparation helps ensure a smooth donation experience.</p>
+<h2>Before Your Appointment</h2>
+<ul><li>Hydrate well — drink plenty of water 24 hours before</li><li>Eat a protein-rich meal 2-3 hours before donation</li><li>Avoid caffeine and fatty foods on donation day</li><li>Get adequate sleep the night before</li><li>Bring valid ID, Social Security card, and proof of address</li></ul>
+<h2>What to Bring</h2>
+<ul><li>Government-issued photo ID</li><li>Social Security card or tax document with SSN</li><li>Proof of residence (utility bill or lease)</li><li>List of current medications</li></ul>`;
+  } else if (p.slug === 'plasma-donation-for-college-students') {
+    content += `<p>Guide to plasma donation for college students looking to earn supplemental income. Donating plasma is a flexible way for students to earn money between classes.</p>
+<h2>Why College Students Choose Plasma Donation</h2>
+<ul><li>Flexible scheduling — many centers open evenings and weekends</li><li>Supplemental income — earn up to $920/month as a new donor</li><li>Campus-adjacent locations — many centers near universities</li><li>Short appointment times — typically 60-90 minutes</li></ul>
+<p>According to published BioLife information, most centers accommodate appointment times that fit around class schedules. Use our <a href="/#calculator">earnings calculator</a> to estimate your monthly income.</p>`;
+  } else if (p.slug === 'weight-based-plasma-pay') {
+    content += `<p>How weight-based plasma pay works at BioLife. According to published BioLife compensation schedules, donor pay is determined by a tiered system based on donor weight.</p>
+<h2>How Weight Tiers Work</h2>
+<p>BioLife generally uses a weight-based compensation scale. Donors who weigh more may qualify for higher per-donation compensation rates. According to donor-reported information:</p>
+<ul><li>Standard Tier (110-149 lbs): base compensation rate</li><li>Mid Tier (150-174 lbs): increased compensation</li><li>Upper Tier (175+ lbs): highest compensation rate</li></ul>
+<p>Exact tier thresholds and compensation amounts vary by center. Use our <a href="/#calculator">earnings calculator</a> for standard rate estimates.</p>`;
+  }
+  content += `</div></div>`;
+  return content;
+}
+
 function buildFaq() {
   const faqs = [
     {q:'How much does BioLife pay per donation in 2026?',a:'According to published industry averages, BioLife pays new donors approximately $115 per donation and returning donors approximately $65 per donation as of 2026. Official eligibility parameters generally apply a weight-based compensation scale, so actual rates may vary. Per published FDA guidelines, donors can donate up to twice per week. Please verify current compensation with your local BioLife center as rates and promotions change regularly.'},
@@ -464,10 +596,14 @@ ${faqs.map(f => `<div class="faq-item"><button class="faq-q" onclick="toggleFaq(
 function cityLinks() {
   return `<div class="city-links">
 <div class="container">
-<h3>Browse Plasma Donation by City</h3>
+<h3>Browse Plasma Donation by State</h3>
+<div class="city-grid">
+${STATES.map(s => `<a href="/plasma-donation-${s.slug}">${s.name}</a>`).join('\n')}
+</div>
+<br><h3>Browse Plasma Donation by City</h3>
 <div class="city-grid">
 ${CITIES.map(c => `<a href="/plasma-donation-${c.slug}">${c.city}, ${c.state}</a>`).join('\n')}
-<a href="/locations" style="font-weight:600;color:var(--teal-dark)">View All 70+ Cities →</a>
+<a href="/locations" style="font-weight:600;color:var(--teal-dark)">View All 100+ Cities →</a>
 </div>
 </div>
 </div>`;
@@ -767,6 +903,29 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
   console.log('  ✓ /' + p.path);
 });
 
+// State pages
+STATES.forEach(s => {
+  const dir = path.join(dist, 'plasma-donation-' + s.slug);
+  fs.mkdirSync(dir, { recursive: true });
+  const html = page(
+    `Plasma Donation ${s.name} — 2026 Rates & BioLife Centers`,
+    `Find BioLife plasma donation information for ${s.name}. New donors earn ~$115/donation, returning ~$65. State-wide center information and 2026 rate estimates included.`,
+    buildStateContent(s),
+    ''
+  );
+  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  console.log('  ✓ State: ' + s.name);
+});
+
+// Comparison / guide pages
+COMPARE_PAGES.forEach(p => {
+  const dir = path.join(dist, p.slug);
+  fs.mkdirSync(dir, { recursive: true });
+  const html = page(p.title, p.desc, buildCompareContent(p), '');
+  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  console.log('  ✓ Guide: /' + p.slug);
+});
+
 // Blog pages
 const blogDir = path.join(dist, 'blog');
 fs.mkdirSync(blogDir, { recursive: true });
@@ -895,6 +1054,50 @@ BLOG_POSTS.forEach(b => {
 <li>Keep records of your donation dates and payment amounts throughout the year</li>
 </ul>
 </div></div>`;
+  } else if (b.slug === 'biolife-pay-schedule') {
+    content = `<div class="content-page"><div class="container">
+<h1>BioLife Pay Schedule — When and How You Get Paid</h1>
+<p>Understanding how BioLife compensates donors is important for planning your donation schedule and managing your supplemental income. According to published BioLife information and donor-reported experiences, here is how the pay process works.</p>
+<h2>Payment Method</h2>
+<p>According to official BioLife policy, donors are generally compensated immediately after each completed donation. Compensation is typically loaded onto a prepaid debit card provided by BioLife. According to donor-reported information, the funds are usually available within minutes of the donation completion.</p>
+<h2>How Much You Get Paid</h2>
+<ul><li>New Donors: approximately $115 per donation</li><li>Returning Donors: approximately $65 per donation</li><li>Monthly Maximum (8 visits): up to $920 for new donors</li></ul>
+<h2>Payment Schedule</h2>
+<p>According to published BioLife information, there is no waiting period for payment. Donors receive compensation after each visit. Some promotional bonuses may be paid according to specific promotion terms, such as after completing a certain number of donations within a promotional period. Use our <a href="/#calculator">earnings calculator</a> to estimate your monthly total.</p>
+</div></div>`;
+  } else if (b.slug === 'plasma-donation-side-effects') {
+    content = `<div class="content-page"><div class="container">
+<h1>Plasma Donation Side Effects — What to Know Before You Go</h1>
+<p>According to published FDA and BioLife information, plasma donation is generally safe for eligible donors. However, some donors may experience mild side effects. Understanding these can help you prepare and minimize discomfort.</p>
+<h2>Common Side Effects</h2>
+<ul><li>Mild dehydration — staying hydrated before and after helps</li><li>Lightheadedness or dizziness — eating a good meal beforehand reduces risk</li><li>Bruising at the needle site — applying pressure after donation helps</li><li>Fatigue — most donors feel normal within a few hours</li></ul>
+<h2>How to Minimize Side Effects</h2>
+<ul><li>Drink plenty of water in the 24 hours before donation</li><li>Eat a protein-rich meal 2-3 hours before your appointment</li><li>Avoid alcohol and caffeine on donation day</li><li>Get adequate sleep the night before</li><li>Rest for a few minutes after donation before leaving</li></ul>
+<p>According to FDA guidelines, serious complications are rare when donors meet eligibility requirements and centers follow proper protocols. Always inform staff of any concerns during your visit.</p>
+</div></div>`;
+  } else if (b.slug === 'how-many-times-can-you-donate-plasma') {
+    content = `<div class="content-page"><div class="container">
+<h1>How Many Times Can You Donate Plasma Per Week?</h1>
+<p>According to official FDA guidelines and BioLife eligibility parameters, plasma donation frequency is regulated to protect donor health. Understanding the limits helps you plan your donation schedule effectively.</p>
+<h2>FDA Donation Frequency Rules</h2>
+<ul><li>Maximum 2 donations per 7-day period</li><li>Minimum 48 hours between donations</li><li>Most donors complete 4 to 8 donations per month</li></ul>
+<h2>Monthly Donation Schedule</h2>
+<p>Based on the FDA frequency guidelines, here is a typical monthly donation pattern:</p>
+<ul><li>Week 1: 2 donations (e.g., Monday and Wednesday)</li><li>Week 2: 2 donations</li><li>Week 3: 2 donations</li><li>Week 4: 2 donations</li><li>Monthly Total: 8 donations maximum</li></ul>
+<h2>Earnings Based on Frequency</h2>
+<p>Using our <a href="/#calculator">earnings calculator</a>, you can see how different donation frequencies affect your monthly income. At the maximum frequency of 8 donations per month, new donors can earn approximately $920.</p>
+</div></div>`;
+  } else if (b.slug === 'biolife-vs-american-red-cross-plasma') {
+    content = `<div class="content-page"><div class="container">
+<h1>BioLife vs American Red Cross Plasma Donation</h1>
+<p>Comparing BioLife Plasma Services with American Red Cross plasma donation programs for 2026. While both organizations collect plasma, their compensation models and donor programs differ significantly.</p>
+<h2>Compensation</h2>
+<ul><li><strong>BioLife:</strong> New donors ~$115/donation, returning ~$65/donation</li><li><strong>American Red Cross:</strong> Generally does not compensate plasma donors, as it operates as a nonprofit blood collection organization</li></ul>
+<h2>Mission Differences</h2>
+<p>According to published information, BioLife is a commercial plasma collection center that compensates donors for their time. The American Red Cross primarily collects blood and blood components for hospital use and typically relies on volunteer donors.</p>
+<h2>Which Should You Choose?</h2>
+<p>If your goal is supplemental income, BioLife offers compensation for each donation. If you prefer to donate without compensation to support hospital blood supply, the American Red Cross may be your choice. Use our <a href="/#calculator">BioLife earnings calculator</a> to estimate potential monthly income.</p>
+</div></div>`;
   }
   const html = page(b.title, b.desc, content, '');
   fs.writeFileSync(path.join(dir, 'index.html'), html);
@@ -905,6 +1108,8 @@ BLOG_POSTS.forEach(b => {
 const SITE = 'https://www.plasmabiolife.online';
 var urls = ['/', '/calculator', '/locations', '/privacy', '/terms', '/contact', '/about', '/blog'];
 CITIES.forEach(c => urls.push('/plasma-donation-' + c.slug));
+STATES.forEach(s => urls.push('/plasma-donation-' + s.slug));
+COMPARE_PAGES.forEach(p => urls.push('/' + p.slug));
 BLOG_POSTS.forEach(b => urls.push('/blog/' + b.slug));
 var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 urls.forEach(u => { sitemap += '  <url><loc>' + SITE + u + '</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>\n'; });
