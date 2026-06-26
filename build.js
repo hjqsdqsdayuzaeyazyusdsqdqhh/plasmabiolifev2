@@ -345,7 +345,50 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 .blog-card:hover{border-color:var(--teal)}
 .blog-card h3{font-size:0.95rem;font-weight:700;margin-bottom:6px}
 .blog-card p{font-size:0.82rem;color:var(--gray-500);line-height:1.5;margin-bottom:10px}
-.blog-card .blog-meta{font-size:0.72rem;color:var(--gray-400)}`;
+.blog-card .blog-meta{font-size:0.72rem;color:var(--gray-400)}
+.search-btn{background:none;border:none;color:var(--gray-500);cursor:pointer;padding:6px;display:flex;align-items:center;transition:color .15s}
+.search-btn:hover{color:var(--teal)}
+.search-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.92);z-index:999;display:none;align-items:flex-start;justify-content:center;padding-top:80px}
+.search-overlay.open{display:flex}
+.search-wrap{width:100%;max-width:580px;padding:0 24px}
+.search-wrap input{width:100%;padding:14px 18px;border:2px solid var(--teal);border-radius:var(--radius);background:var(--white);font-size:1rem;font-family:inherit;color:var(--gray-900);outline:none}
+.search-wrap input::placeholder{color:var(--gray-400)}
+.search-results{margin-top:12px;max-height:50vh;overflow-y:auto;background:var(--white);border-radius:var(--radius);padding:8px}
+.search-result-item{display:block;padding:10px 14px;border-radius:6px;text-decoration:none;color:var(--gray-900);transition:background .12s}
+.search-result-item:hover{background:var(--teal-light)}
+.search-result-item .sri-title{font-size:0.88rem;font-weight:600}
+.search-result-item .sri-desc{font-size:0.75rem;color:var(--gray-400);margin-top:2px}
+.search-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--gray-400);font-size:1.6rem;cursor:pointer;transition:color .15s}
+.search-close:hover{color:var(--white)}
+.breadcrumbs{padding:10px 0 0;font-size:0.73rem;color:var(--gray-400)}
+.breadcrumbs a{color:var(--gray-400);text-decoration:none;transition:color .15s}
+.breadcrumbs a:hover{color:var(--teal)}
+.breadcrumbs .sep{margin:0 6px;color:var(--gray-300)}
+.breadcrumbs .current{color:var(--gray-500);font-weight:500}
+.related-section{margin-top:36px;padding-top:24px;border-top:1px solid var(--gray-200)}
+.related-section h3{font-size:0.85rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.related-card{display:block;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:14px;text-decoration:none;color:inherit;transition:border-color .15s}
+.related-card:hover{border-color:var(--teal)}
+.related-card .rc-title{font-size:0.82rem;font-weight:600;color:var(--gray-900);margin-bottom:3px}
+.related-card .rc-desc{font-size:0.74rem;color:var(--gray-400);line-height:1.4}
+.toc{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px 20px;margin-bottom:24px}
+.toc-title{font-size:0.75rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+.toc-list{list-style:none;padding:0;margin:0}
+.toc-list li{margin-bottom:4px}
+.toc-list a{font-size:0.84rem;color:var(--gray-500);text-decoration:none;transition:color .15s;display:block;padding:3px 0;border-bottom:1px solid var(--gray-100)}
+.toc-list a:hover{color:var(--teal-dark)}
+.content-page h2{scroll-margin-top:70px}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr}.search-wrap{padding:0 16px}.search-overlay{padding-top:60px}}
+@media(max-width:480px){.toc{padding:14px 16px}}`;
+
+const SEARCH_OVERLAY = `<div class="search-overlay" id="searchOverlay">
+<button class="search-close" onclick="closeSearch()">&times;</button>
+<div class="search-wrap">
+<input type="text" id="searchInput" placeholder="Search cities, articles, topics..." oninput="doSearch(this.value)" autofocus>
+<div class="search-results" id="searchResults"></div>
+</div>
+</div>`;
 
 const NAV = `<nav class="nav">
 <div class="container">
@@ -358,9 +401,11 @@ const NAV = `<nav class="nav">
 <li><a href="/#locations">Locations</a></li>
 <li><a href="/#faq">FAQ</a></li>
 <li><a href="/blog">Blog</a></li>
+<li><button class="search-btn" onclick="openSearch()" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button></li>
 </ul>
 </div>
-</nav>`;
+</nav>
+${SEARCH_OVERLAY}`;
 
 const FOOTER = `<footer>
 <div class="footer-inner">
@@ -423,6 +468,14 @@ const CALCULATOR_HTML = `<section class="calc-section" id="calculator">
 <p class="calc-footnote">According to published industry averages. Actual compensation varies by location, weight-based pay tables, and current center promotions. Verify with your local center.</p>
 </div>
 </section>`;
+
+const SEARCH_INDEX = '[' +
+  CITIES.map(c => JSON.stringify({t:c.city+', '+c.state,d:'BioLife plasma donation center in '+c.city+', '+c.state,u:'/plasma-donation-'+c.slug})).join(',') + ',' +
+  STATES.map(s => JSON.stringify({t:s.name+' Plasma Donation',d:'BioLife plasma donation centers and rates in '+s.name,u:'/plasma-donation-'+s.slug})).join(',') + ',' +
+  BLOG_POSTS.map(b => JSON.stringify({t:b.title,d:b.desc,u:'/blog/'+b.slug})).join(',') + ',' +
+  COMPARE_PAGES.map(p => JSON.stringify({t:p.title,d:p.desc,u:'/'+p.slug})).join(',') + ',' +
+  STATIC_PAGES.filter(p => p.path!=='calculator').map(p => JSON.stringify({t:p.title,d:p.desc,u:'/'+p.path})).join(',') +
+']';
 
 const CALC_SCRIPT = `<script>
 (function(){
@@ -503,6 +556,14 @@ renderComments();
 };
 renderComments();
 })();
+var searchIndex = [${SEARCH_INDEX}];
+function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(function(){var inp=document.getElementById('searchInput');if(inp){inp.value='';inp.focus();document.getElementById('searchResults').innerHTML='';}},100)}
+function closeSearch(){document.getElementById('searchOverlay').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch()}});
+function doSearch(q){var results=document.getElementById('searchResults');if(!results)return;q=q.toLowerCase().trim();if(q.length<2){results.innerHTML='';return}
+var matches=[];for(var i=0;i<searchIndex.length;i++){var item=searchIndex[i];if(item.t.toLowerCase().indexOf(q)!==-1||item.d.toLowerCase().indexOf(q)!==-1){matches.push(item)}}
+if(matches.length===0){results.innerHTML='<div style="padding:14px;font-size:0.85rem;color:var(--gray-400);text-align:center">No results found for "'+q+'"</div>';return}
+results.innerHTML=matches.slice(0,12).map(function(m){return '<a href="'+m.u+'" class="search-result-item" onclick="closeSearch()"><div class="sri-title">'+m.t+'</div><div class="sri-desc">'+m.d+'</div></a>';}).join('');}
 </script>`;
 
 function buildCityContent(c) {
@@ -529,7 +590,7 @@ function buildCityContent(c) {
 <p>According to official FDA and BioLife eligibility parameters, donors can generally donate plasma up to two times per week, with at least 48 hours between donations. Most ${c.city} donors average 4 to 8 donations per month.</p>
 <h3>What do I need to bring to donate in ${c.city}?</h3>
 <p>First-time donors at the ${c.city} BioLife center generally need a valid government-issued ID, proof of Social Security number, and proof of local address. According to published BioLife requirements, donors must be at least 18 years old and weigh a minimum of 110 pounds.</p>
-</div>`;
+</div>${getRelatedCities(c.city, c.state)}`;
 }
 
 function buildStateContent(s) {
@@ -789,7 +850,47 @@ function buildLocationsLd(c) {
   return `{"@type":"LocalBusiness","name":"BioLife Plasma Services - ${c.city}","address":{"@type":"PostalAddress","streetAddress":"${c.addr.split(',')[0]}","addressLocality":"${c.city}","addressRegion":"${c.state}","addressCountry":"US"},"telephone":"(800) 555-0100","openingHours":"Mo-Sa 07:00-19:00, Su 08:00-17:00"}`;
 }
 
-function page(title, desc, bodyContent, extraLd) {
+function addToc(html) {
+  var headings = [];
+  var idCounter = 0;
+  var withIds = html.replace(/<h2>(.*?)<\/h2>/g, function(m, text) {
+    var id = 'toc-' + (++idCounter);
+    headings.push({id: id, text: text});
+    return '<h2 id="' + id + '">' + text + '</h2>';
+  });
+  if (headings.length < 2) return withIds;
+  var toc = '<div class="toc"><div class="toc-title">In This Guide</div><ul class="toc-list">' +
+    headings.map(function(h) { return '<li><a href="#' + h.id + '">' + h.text + '</a></li>'; }).join('') +
+    '</ul></div>';
+  return withIds.replace('</p>', '</p>' + toc);
+}
+
+function getRelatedArticles(currentSlug) {
+  var others = BLOG_POSTS.filter(function(b){return b.slug !== currentSlug;});
+  var picks = [];
+  for (var i = others.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i+1)); var tmp = others[i]; others[i] = others[j]; others[j] = tmp; }
+  picks = others.slice(0, 4);
+  return '<div class="related-section"><h3>Related Articles</h3><div class="related-grid">' +
+    picks.map(function(b){return '<a href="/blog/'+b.slug+'" class="related-card"><div class="rc-title">'+b.title+'</div><div class="rc-desc">'+b.desc.substring(0,80)+'...</div></a>';}).join('') +
+    '</div></div>';
+}
+
+function getRelatedCities(city, state) {
+  var sameState = CITIES.filter(function(c){return c.state === state && c.city !== city;});
+  var related = sameState.length >= 4 ? sameState.slice(0,4) : sameState.slice(0,3);
+  if (related.length < 4) {
+    var needed = 4 - related.length;
+    var others = CITIES.filter(function(c){return c.state !== state;});
+    for (var i = others.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i+1)); var tmp = others[i]; others[i] = others[j]; others[j] = tmp; }
+    related = related.concat(others.slice(0, needed));
+  }
+  return '<div class="related-section"><h3>Related Cities</h3><div class="related-grid">' +
+    related.map(function(c){return '<a href="/plasma-donation-'+c.slug+'" class="related-card"><div class="rc-title">'+c.city+', '+c.state+'</div><div class="rc-desc">BioLife plasma donation center information for '+c.city+', '+c.state+'.</div></a>';}).join('') +
+    '</div></div>';
+}
+
+function page(title, desc, bodyContent, extraLd, crumbs) {
+  const bc = crumbs && crumbs.length ? '<div class="breadcrumbs"><div class="container">' + crumbs.map((c,i) => i < crumbs.length-1 ? '<a href="'+c[1]+'">'+c[0]+'</a><span class="sep">›</span>' : '<span class="current">'+c[0]+'</span>').join('') + '</div></div>' : '';
   const ld = `[{
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -816,6 +917,7 @@ function page(title, desc, bodyContent, extraLd) {
 </head>
 <body>
 ${NAV}
+${bc}
 ${bodyContent}
 <div class="ad-row"><div class="ad-slot"><!-- ADSENSE BETWEEN SECTIONS --></div></div>
 ${buildReviews()}
@@ -880,7 +982,8 @@ const homeHtml = page(
   'BioLife Plasma Earnings Calculator 2026 | Free Monthly Income Estimator',
   'Free BioLife plasma earnings calculator. Estimate your monthly income: new donors earn $115/donation, returning $65. Interactive tool with annual projections for 2026.',
   HOME_BODY,
-  homepageLd
+  homepageLd,
+  [['Home','/']]
 );
 fs.mkdirSync(dist, { recursive: true });
 fs.writeFileSync(path.join(dist, 'index.html'), homeHtml);
@@ -901,7 +1004,8 @@ CITIES.forEach(c => {
     `Plasma Donation ${c.city}, ${c.state} — BioLife Rates & Information`,
     `Find BioLife plasma donation information for ${c.city}, ${c.state}. New donors earn ~$115/donation, returning ~$65. Center address, hours, and 2026 rate estimates included.`,
     buildCityContent(c),
-    ld
+    ld,
+    [['Home','/'],['Plasma Donation '+c.city+', '+c.state,'']]
   );
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log('  ✓ ' + c.city + ', ' + c.state);
@@ -1038,7 +1142,15 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
 <p>Have questions or feedback? Visit our <a href="/contact">contact page</a> to get in touch.</p>
 </div></div>`;
   }
-  const html = page(p.title, p.desc, body, '');
+  var crumbs = [['Home','/']];
+  if (p.path === 'about') crumbs.push(['About','']);
+  else if (p.path === 'privacy') crumbs.push(['Privacy Policy','']);
+  else if (p.path === 'terms') crumbs.push(['Terms & Conditions','']);
+  else if (p.path === 'disclaimer') crumbs.push(['Disclaimer','']);
+  else if (p.path === 'contact') crumbs.push(['Contact','']);
+  else if (p.path === 'calculator') crumbs.push(['Earnings Calculator','']);
+  else if (p.path === 'locations') crumbs.push(['All Locations','']);
+  const html = page(p.title, p.desc, body, '', crumbs);
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log('  ✓ /' + p.path);
 });
@@ -1051,7 +1163,8 @@ STATES.forEach(s => {
     `Plasma Donation ${s.name} — 2026 Rates & BioLife Centers`,
     `Find BioLife plasma donation information for ${s.name}. New donors earn ~$115/donation, returning ~$65. State-wide center information and 2026 rate estimates included.`,
     buildStateContent(s),
-    ''
+    '',
+    [['Home','/'],['Plasma Donation '+s.name,'']]
   );
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log('  ✓ State: ' + s.name);
@@ -1061,7 +1174,7 @@ STATES.forEach(s => {
 COMPARE_PAGES.forEach(p => {
   const dir = path.join(dist, p.slug);
   fs.mkdirSync(dir, { recursive: true });
-  const html = page(p.title, p.desc, buildCompareContent(p), '');
+  const html = page(p.title, p.desc, buildCompareContent(p), '', [['Home','/'],['Guide','']]);
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log('  ✓ Guide: /' + p.slug);
 });
@@ -1082,7 +1195,8 @@ const blogIndexHtml = page(
   'BioLife Plasma Blog — Donation Guides, Rates & Tips 2026',
   'Expert guides about BioLife plasma donation rates, eligibility, tax rules, and donor tips. Updated for 2026 with current compensation information.',
   blogIndexBody,
-  ''
+  '',
+  [['Home','/'],['Blog','']]
 );
 fs.writeFileSync(path.join(blogDir, 'index.html'), blogIndexHtml);
 console.log('  ✓ /blog');
@@ -1358,7 +1472,9 @@ BLOG_POSTS.forEach(b => {
 <p>Use our <a href="/#calculator">earnings calculator</a> to estimate your monthly plasma donation income.</p>
 </div></div>`;
   }
-  const html = page(b.title, b.desc, content, '');
+  content = addToc(content) + getRelatedArticles(b.slug);
+  var bcTitle = b.title.length > 35 ? b.title.substring(0, 32) + '...' : b.title;
+  const html = page(b.title, b.desc, content, '', [['Home','/'],['Blog','/blog'],[bcTitle,'']]);
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log('  ✓ /blog/' + b.slug);
 });
