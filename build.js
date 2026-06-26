@@ -145,6 +145,7 @@ const STATIC_PAGES = [
   {path:'terms',title:'Terms of Use — BioLife Plasma Earnings Calculator',desc:'Terms and conditions for using the BioLife Plasma Earnings Calculator website and tools.'},
   {path:'contact',title:'Contact Us — BioLife Plasma Earnings Calculator',desc:'Contact the BioLife Plasma Earnings Calculator team. Get support or send feedback about our free income estimation tools.'},
   {path:'about',title:'About — BioLife Plasma Earnings Calculator 2026',desc:'About the BioLife Plasma Earnings Calculator — a free independent tool for estimating monthly plasma donation income based on 2026 industry rates.'},
+  {path:'disclaimer',title:'Disclaimer — BioLife Plasma Earnings Calculator',desc:'Legal disclaimer for the BioLife Plasma Earnings Calculator. Important information about accuracy, no affiliation with BioLife, and limitations of our content.'},
 ];
 
 const BLOG_POSTS = [
@@ -930,28 +931,60 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
   } else if (p.path === 'privacy') {
     body = `<div class="content-page"><div class="container">
 <h1>Privacy Policy</h1>
-<p>Last updated: June 2026</p>
+<p class="meta">Last updated: June 2026</p>
+<h2>Introduction</h2>
+<p>Your privacy is important to us. This Privacy Policy explains how the BioLife Plasma Earnings Calculator website ("we," "our," or "this website") handles information when you visit and use our website. By using this website, you acknowledge the practices described in this policy.</p>
 <h2>Information We Collect</h2>
-<p>This website does not collect, store, or process any personal information from its users. All calculations are performed locally in your browser — no data is transmitted to our servers.</p>
+<p>This website does not collect, store, or process any personal information from its users. All calculator inputs and calculations are performed entirely within your browser using client-side JavaScript. <strong>No data you enter into the calculator is transmitted to our servers or any third party.</strong> We do not create user accounts, send newsletters, or store any personal data.</p>
+<h2>Automatic Data Collection</h2>
+<p>Like most websites, we may automatically collect certain non-personally identifiable information when you visit, such as browser type, operating system, referring URL, and aggregate page view statistics. This information is used solely for understanding general traffic patterns and improving our website. It cannot be used to identify individual users.</p>
+<h2>Cookies & Tracking Technologies</h2>
+<p>This website does not set its own cookies. However, third-party services we use (such as Google AdSense) may use cookies, web beacons, or similar technologies to deliver relevant advertisements and measure ad performance. These technologies are governed by the third-party providers' own privacy policies. You can control cookie preferences through your browser settings — most browsers allow you to block or delete cookies. The comment system uses your browser's localStorage to store comment data locally; no data is transmitted to our servers.</p>
 <h2>Third-Party Services</h2>
-<p>We may use third-party advertising services (such as Google AdSense) that may use cookies and similar technologies to serve relevant advertisements. These services operate under their own privacy policies. You can manage cookie preferences through your browser settings.</p>
-<h2>Analytics</h2>
-<p>This website may use basic analytics to understand aggregate traffic patterns. No personally identifiable information is tracked or stored.</p>
+<p>This website may display advertisements via Google AdSense or other ad networks. Google AdSense uses cookies to serve ads based on your visits to this and other websites. You can learn more about Google's advertising privacy practices at Google's Privacy Policy page. You can opt out of personalized advertising by visiting Google's Ads Settings.</p>
+<h2>Third-Party Links</h2>
+<p>This website may contain links to third-party websites, including social media platforms and external resources. We are not responsible for the privacy practices or content of these third-party sites. We encourage you to review the privacy policies of any external websites you visit.</p>
+<h2>Data Security</h2>
+<p>We implement reasonable security measures to protect the limited information processed through this website. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security of any information transmitted to or through our website.</p>
+<h2>Children's Privacy</h2>
+<p>This website is not directed to, and we do not knowingly collect any information from, children under the age of 18. If you believe a child has provided personal information through our website, please contact us so we can take appropriate action.</p>
+<h2>Do Not Track</h2>
+<p>This website does not respond to Do Not Track (DNT) browser signals at this time, as no uniform standard for DNT signals has been adopted.</p>
+<h2>Changes to This Policy</h2>
+<p>We reserve the right to update or modify this Privacy Policy at any time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of this website after changes are posted constitutes your acceptance of the revised policy.</p>
 <h2>Contact</h2>
-<p>If you have questions about this privacy policy, please contact us through our <a href="/contact">contact page</a>.</p>
+<p>If you have questions, concerns, or requests regarding this Privacy Policy, please visit our <a href="/contact">contact page</a>.</p>
 </div></div>`;
   } else if (p.path === 'terms') {
     body = `<div class="content-page"><div class="container">
-<h1>Terms of Use</h1>
-<p>Last updated: June 2026</p>
-<h2>Acceptance of Terms</h2>
-<p>By using this website, you agree to these terms of use. If you do not agree, please do not use this site.</p>
-<h2>Informational Purposes Only</h2>
-<p>All content on this website is provided for informational and educational purposes only. Compensation figures are based on published industry averages and should not be considered guaranteed earnings. Actual compensation varies by location, weight-based pay tables, and current center promotions.</p>
-<h2>No Affiliation</h2>
-<p>This website is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with BioLife Plasma Services or Takeda Pharmaceuticals. BioLife is a registered trademark of Takeda Pharmaceutical Company.</p>
-<h2>No Financial Advice</h2>
-<p>The information provided on this website does not constitute financial, legal, or tax advice. Please consult qualified professionals regarding your specific situation.</p>
+<h1>Terms & Conditions</h1>
+<p class="meta">Last updated: June 2026</p>
+<h2>1. Acceptance of Terms</h2>
+<p>By accessing or using the BioLife Plasma Earnings Calculator website ("this website"), you agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must not use this website.</p>
+<h2>2. Informational Purposes Only</h2>
+<p>All content, tools, calculators, data, and materials on this website are provided for general informational and educational purposes only. They do not constitute professional advice of any kind. Compensation figures are based on published industry averages and should not be considered guaranteed or promised earnings. Actual compensation varies by location, weight-based pay tables, current center promotions, and other factors beyond our control.</p>
+<h2>3. No Affiliation</h2>
+<p>This website is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with BioLife Plasma Services, Takeda Pharmaceuticals, or any of their subsidiaries or affiliates. "BioLife" is a registered trademark of Takeda Pharmaceutical Company. Any reference to BioLife on this website is for informational and descriptive purposes only and does not imply any association or endorsement.</p>
+<h2>4. No Professional Advice</h2>
+<p>The information provided on this website does not constitute medical, financial, legal, tax, or any other professional advice. You should consult qualified, licensed professionals regarding your specific situation before making any decisions based on information found on this website. <strong>We are not medical professionals.</strong> Always consult a physician before donating plasma, especially if you have underlying health conditions.</p>
+<h2>5. Use of the Calculator</h2>
+<p>The earnings calculator on this website provides estimates based on user-provided inputs and published industry-average rates. All calculations are performed client-side in your browser. We make no representations or warranties regarding the accuracy, completeness, or reliability of any calculator results. The calculator is provided "as is" without any express or implied warranty.</p>
+<h2>6. Intellectual Property</h2>
+<p>Unless otherwise stated, we own the intellectual property rights for all content on this website, including text, graphics, logos, and tool functionality. You may access and view this content for personal, non-commercial use. You must not reproduce, distribute, modify, or publicly display any content from this website without our prior written consent.</p>
+<h2>7. User Conduct</h2>
+<p>You agree not to: (a) use this website for any unlawful purpose; (b) attempt to disrupt or impair the functionality of the website or its tools; (c) scrape, data-mine, or extract content without authorization; (d) upload or transmit malicious code or harmful content.</p>
+<h2>8. Third-Party Links</h2>
+<p>This website may contain links to third-party websites or services that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You acknowledge that we shall not be liable for any damages or loss caused by your use of any third-party website.</p>
+<h2>9. Limitation of Liability</h2>
+<p>To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of this website, including but not limited to lost earnings, lost data, or business interruption. Your sole remedy for dissatisfaction with this website is to discontinue use.</p>
+<h2>10. Disclaimer of Warranties</h2>
+<p>This website and all content, tools, and materials are provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied. We do not warrant that the website will be uninterrupted, error-free, secure, or free from viruses or other harmful components.</p>
+<h2>11. Changes to Terms</h2>
+<p>We reserve the right to modify or replace these Terms & Conditions at any time at our sole discretion. Changes will be effective immediately upon posting. Your continued use of the website after any modifications constitutes acceptance of the updated terms. We encourage you to review this page periodically.</p>
+<h2>12. Governing Law</h2>
+<p>These Terms & Conditions shall be governed by and construed in accordance with the laws of the United States. Any disputes arising under these terms shall be resolved in the courts of competent jurisdiction.</p>
+<h2>13. Contact</h2>
+<p>If you have questions about these Terms & Conditions, please visit our <a href="/contact">contact page</a>.</p>
 </div></div>`;
   } else if (p.path === 'contact') {
     body = `<div class="content-page"><div class="container">
@@ -960,16 +993,49 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
 <p>Please note: This is an independent informational website and is NOT affiliated with BioLife Plasma Services or Takeda Pharmaceuticals. We cannot assist with specific center inquiries, appointments, or account issues.</p>
 <p>For BioLife-specific support, please contact BioLife Plasma Services directly through their official website or visit your local center.</p>
 </div></div>`;
+  } else if (p.path === 'disclaimer') {
+    body = `<div class="content-page"><div class="container">
+<h1>Disclaimer</h1>
+<p class="meta">Last updated: June 2026</p>
+<h2>General Information Only</h2>
+<p>The content, tools, materials, and information published on the BioLife Plasma Earnings Calculator website ("this website") are provided for general informational and educational purposes only. Nothing on this website constitutes professional medical, financial, legal, or tax advice. You should always consult qualified, licensed professionals regarding your specific circumstances.</p>
+<h2>No Doctor-Patient Relationship</h2>
+<p>This website is not a medical provider. We are not medical professionals. The information on this website does not create a doctor-patient relationship and should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before donating plasma, particularly if you have any underlying health conditions, take medications, or have concerns about your eligibility. <strong>If you are experiencing a medical emergency, call 911 immediately.</strong></p>
+<h2>Earnings Estimates Are Not Guarantees</h2>
+<p>Any compensation figures, earnings estimates, or financial projections displayed on this website are based on published industry averages and publicly available information. They are estimates only and should not be interpreted as guaranteed or promised earnings. Actual compensation from plasma donation varies based on multiple factors, including but not limited to: location, donor weight, donation frequency, current center promotions, donor type (new vs. returning), and changes in center compensation policies. We strongly recommend verifying current rates directly with your local donation center before making any financial decisions.</p>
+<h2>No Affiliation</h2>
+<p>This website is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with BioLife Plasma Services, Takeda Pharmaceuticals, or any of their respective subsidiaries, affiliates, or related entities. "BioLife" and all related trademarks, logos, and brand names are the property of Takeda Pharmaceutical Company. Any references to BioLife on this website are made solely for informational and descriptive purposes and do not imply any sponsorship, endorsement, or association.</p>
+<h2>Accuracy & Completeness</h2>
+<p>We make reasonable efforts to ensure the accuracy of information on this website, but we make no representations or warranties, express or implied, regarding the accuracy, completeness, reliability, suitability, or availability of any content. Compensation rates, center information, and other data may change without notice. We disclaim all liability for any errors or omissions in the content.</p>
+<h2>External Links</h2>
+<p>This website may contain links to external websites, including social media platforms, government resources, and third-party information sources. We are not responsible for the content, accuracy, or practices of any linked third-party websites. The inclusion of any link does not imply endorsement by us. Access and use of third-party websites are at your own risk and subject to their respective terms and privacy policies.</p>
+<h2>Testimonials & Reviews</h2>
+<p>Testimonials, reviews, and donor experience descriptions on this website are for informational purposes only and are clearly labeled as sample/test content. Individual experiences with plasma donation vary. Past performance or experiences do not guarantee future results or similar experiences. Some testimonials may be representative summaries of common donor perspectives found in public forums.</p>
+<h2>Changes to This Disclaimer</h2>
+<p>We reserve the right to modify this Disclaimer at any time without prior notice. Changes will be posted on this page with an updated "Last updated" date. Your continued use of this website following any changes constitutes acceptance of the updated Disclaimer.</p>
+<h2>Contact</h2>
+<p>If you have questions about this Disclaimer, please visit our <a href="/contact">contact page</a>.</p>
+</div></div>`;
   } else if (p.path === 'about') {
     body = `<div class="content-page"><div class="container">
-<h1>About This Tool</h1>
-<p>The BioLife Plasma Earnings Calculator is a free, independent online tool designed to help plasma donors estimate their potential earnings based on published 2026 industry compensation averages.</p>
+<h1>About BioLife Plasma Earnings Calculator</h1>
+<p class="meta">Last updated: June 2026</p>
+<h2>Our Purpose</h2>
+<p>The BioLife Plasma Earnings Calculator is a free, independent online tool designed to help plasma donors estimate their potential earnings based on published 2026 industry compensation averages. We believe in transparent, accessible information that empowers individuals to make informed financial decisions.</p>
 <h2>How It Works</h2>
-<p>Our calculator uses published industry-average compensation rates for new donors ($115/donation) and returning donors ($65/donation) to provide quick monthly and annual earnings estimates. Simply select your donor type and expected monthly donation frequency to see real-time projections.</p>
+<p>Our calculator uses published industry-average compensation rates — approximately $115 per donation for new donors and $65 per donation for returning donors — to provide quick monthly and annual earnings estimates. Simply select your donor type and expected monthly donation frequency to see real-time projections. All calculations are performed locally in your browser; no data is transmitted to our servers.</p>
 <h2>Our Mission</h2>
-<p>We aim to provide transparent, easy-to-understand earnings estimates to help individuals make informed decisions about plasma donation as a source of supplemental income.</p>
-<h2>Data Sources</h2>
-<p>Compensation figures are based on published industry averages, publicly available BioLife promotional materials, and donor-reported rate information. All figures should be verified with your local donation center.</p>
+<p>We aim to provide transparent, easy-to-understand earnings estimates and educational resources to help individuals make informed decisions about plasma donation as a source of supplemental income. We are committed to accuracy, clarity, and independence.</p>
+<h2>Data Sources & Accuracy</h2>
+<p>Compensation figures on this website are based on published industry averages, publicly available BioLife promotional materials, and donor-reported rate information. While we strive to keep our information current and accurate, plasma donation rates are subject to change based on location, weight-based pay tables, center-specific promotions, and other factors. All figures displayed on this website are estimates and should be verified with your local donation center.</p>
+<h2>Editorial Independence</h2>
+<p>This website is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with BioLife Plasma Services, Takeda Pharmaceuticals, or any other plasma collection organization. All content is produced independently for informational purposes only. No plasma collection organization has reviewed, approved, or sponsored any content on this website.</p>
+<h2>About the Editor</h2>
+<p>This website is edited and maintained by Alex Kowalski, a healthcare information researcher with experience analyzing public health data and industry compensation trends. Content is reviewed periodically to reflect current published information.</p>
+<h2>Why We Built This Tool</h2>
+<p>Plasma donation compensation information is often scattered across multiple sources, making it difficult for potential donors to estimate their earning potential. We built this calculator to consolidate available public information into a simple, accessible tool that helps users make informed decisions about plasma donation as a supplemental income option.</p>
+<h2>Contact</h2>
+<p>Have questions or feedback? Visit our <a href="/contact">contact page</a> to get in touch.</p>
 </div></div>`;
   }
   const html = page(p.title, p.desc, body, '');
@@ -1299,7 +1365,7 @@ BLOG_POSTS.forEach(b => {
 
 // Sitemap
 const SITE = 'https://www.plasmabiolife.online';
-var urls = ['/', '/calculator', '/locations', '/privacy', '/terms', '/contact', '/about', '/blog'];
+var urls = ['/', '/calculator', '/locations', '/privacy', '/terms', '/contact', '/about', '/disclaimer', '/blog'];
 CITIES.forEach(c => urls.push('/plasma-donation-' + c.slug));
 STATES.forEach(s => urls.push('/plasma-donation-' + s.slug));
 COMPARE_PAGES.forEach(p => urls.push('/' + p.slug));
