@@ -356,6 +356,22 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 .search-input-wrap input::placeholder{color:var(--gray-400)}
 .search-go{background:var(--teal);border:none;border-radius:0 var(--radius) var(--radius) 0;padding:0 18px;cursor:pointer;display:flex;align-items:center;color:var(--white);transition:background .15s}
 .search-go:hover{background:var(--teal-dark)}
+.suggestions{padding:4px 0}
+.sug-group{margin-bottom:8px}
+.sug-group:last-child{margin-bottom:0}
+.sug-heading{font-size:0.7rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.4px;padding:8px 14px 4px}
+.sug-heading span{margin-right:4px}
+.sug-grid{display:flex;flex-wrap:wrap;gap:4px;padding:0 10px 6px}
+.sug-item{display:inline-block;padding:5px 10px;font-size:0.78rem;color:var(--gray-600);background:var(--gray-50);border:1px solid var(--gray-200);border-radius:6px;text-decoration:none;transition:all .12s;white-space:nowrap}
+.sug-item:hover{background:var(--teal-light);border-color:var(--teal);color:var(--teal-dark)}
+.auto-match{padding:4px 0}
+.auto-group{padding:2px 0}
+.auto-heading{font-size:0.68rem;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.3px;padding:6px 14px 2px}
+.auto-item{display:flex;align-items:center;gap:8px;padding:7px 14px;font-size:0.84rem;color:var(--gray-700);text-decoration:none;transition:background .1s;border-radius:4px;margin:0 4px}
+.auto-item:hover{background:var(--teal-light)}
+.auto-item .ai-icon{font-size:0.9rem;width:20px;text-align:center;flex-shrink:0}
+.auto-item .ai-title{font-weight:500}
+.auto-item .ai-desc{font-size:0.72rem;color:var(--gray-400);margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
 .search-results{margin-top:12px;max-height:50vh;overflow-y:auto;background:var(--white);border-radius:var(--radius);padding:8px}
 .search-result-item{display:block;padding:10px 14px;border-radius:6px;text-decoration:none;color:var(--gray-900);transition:background .12s}
 .search-result-item:hover{background:var(--teal-light)}
@@ -385,14 +401,39 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 @media(max-width:768px){.related-grid{grid-template-columns:1fr}.search-wrap{padding:0 16px}.search-overlay{padding-top:60px}}
 @media(max-width:480px){.toc{padding:14px 16px}}`;
 
+const SUGGESTIONS_HTML = '<div class="suggestions" id="suggestions">' +
+'<div class="sug-group"><div class="sug-heading"><span>🔥</span> Popular Searches</div><div class="sug-grid">' +
+CITIES.slice(0,4).map(c => '<a href="/plasma-donation-'+c.slug+'" class="sug-item" onclick="closeSearch()">📍 BioLife '+c.city+'</a>').join('') +
+'<a href="/plasma-donation-california" class="sug-item" onclick="closeSearch()">📍 BioLife California</a>' +
+'<a href="/plasma-donation-florida" class="sug-item" onclick="closeSearch()">📍 BioLife Florida</a>' +
+'<a href="/blog/new-donor-bonus-guide" class="sug-item" onclick="closeSearch()">💰 New Donor Bonus</a>' +
+'<a href="/#calculator" class="sug-item" onclick="closeSearch()">💰 Returning Donor Pay</a>' +
+'<a href="/calculator" class="sug-item" onclick="closeSearch()">🧮 Compensation Calculator</a>' +
+'<a href="/blog/plasma-donation-requirements" class="sug-item" onclick="closeSearch()">📋 Donation Requirements</a>' +
+'<a href="/blog/biolife-promotions-calendar" class="sug-item" onclick="closeSearch()">🏷️ Promo Codes</a>' +
+'<a href="/blog/biolife-referral-program" class="sug-item" onclick="closeSearch()">🤝 Referral Bonus</a>' +
+'</div></div>' +
+'<div class="sug-group"><div class="sug-heading"><span>📍</span> Browse by State</div><div class="sug-grid">' +
+['Texas','Florida','California','Arizona','Nevada','Ohio','Illinois','Michigan'].map(s => '<a href="/plasma-donation-'+s.toLowerCase()+'" class="sug-item" onclick="closeSearch()">📍 '+s+'</a>').join('') +
+'</div></div>' +
+'<div class="sug-group"><div class="sug-heading"><span>📄</span> Popular Articles</div><div class="sug-grid">' +
+BLOG_POSTS.slice(0,7).map(b => '<a href="/blog/'+b.slug+'" class="sug-item" onclick="closeSearch()">📄 '+b.title+'</a>').join('') +
+'</div></div>' +
+'<div class="sug-group"><div class="sug-heading"><span>🧮</span> Quick Tools</div><div class="sug-grid">' +
+'<a href="/calculator" class="sug-item" onclick="closeSearch()">🧮 Earnings Calculator</a>' +
+'<a href="/#calculator" class="sug-item" onclick="closeSearch()">🧮 Annual Income Calculator</a>' +
+'<a href="/#calculator" class="sug-item" onclick="closeSearch()">🧮 Donation Frequency Calculator</a>' +
+'<a href="/calculator" class="sug-item" onclick="closeSearch()">🧮 Bonus Estimator</a>' +
+'</div></div></div>';
+
 const SEARCH_OVERLAY = `<div class="search-overlay" id="searchOverlay">
 <button class="search-close" onclick="closeSearch()">&times;</button>
 <div class="search-wrap">
 <div class="search-input-wrap">
-<input type="text" id="searchInput" placeholder="Search cities, articles, topics..." oninput="doSearch(this.value)" autofocus>
+<input type="text" id="searchInput" placeholder="Search cities, articles, topics..." oninput="doSearch(this.value)" onfocus="showSuggestions()" autofocus>
 <button class="search-go" onclick="doSearch(document.getElementById('searchInput').value)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
 </div>
-<div class="search-results" id="searchResults"></div>
+<div class="search-results" id="searchResults">${SUGGESTIONS_HTML}</div>
 </div>
 </div>`;
 
@@ -563,13 +604,33 @@ renderComments();
 renderComments();
 })();
 var searchIndex = [${SEARCH_INDEX}];
-function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(function(){var inp=document.getElementById('searchInput');if(inp){inp.value='';inp.focus();inp.addEventListener('keydown',function(e){if(e.key==='Enter'){doSearch(inp.value)}});document.getElementById('searchResults').innerHTML='';}},100)}
+var suggestionsHtml = '';
+function initSearch(){var r=document.getElementById('searchResults');if(r)suggestionsHtml=r.innerHTML;}
+function showSuggestions(){var r=document.getElementById('searchResults');if(r&&suggestionsHtml)r.innerHTML=suggestionsHtml;}
+function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(function(){var inp=document.getElementById('searchInput');if(inp){inp.value='';inp.focus();inp.addEventListener('keydown',function(e){if(e.key==='Enter'){doSearch(inp.value)}});showSuggestions();}},100)}
 function closeSearch(){document.getElementById('searchOverlay').classList.remove('open')}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch()}});
-function doSearch(q){var results=document.getElementById('searchResults');if(!results)return;q=q.toLowerCase().trim();if(q.length<2){results.innerHTML='';return}
-var matches=[];for(var i=0;i<searchIndex.length;i++){var item=searchIndex[i];if(item.t.toLowerCase().indexOf(q)!==-1||item.d.toLowerCase().indexOf(q)!==-1){matches.push(item)}}
-if(matches.length===0){results.innerHTML='<div style="padding:14px;font-size:0.85rem;color:var(--gray-400);text-align:center">No results found for "'+q+'"</div>';return}
-results.innerHTML=matches.slice(0,12).map(function(m){return '<a href="'+m.u+'" class="search-result-item" onclick="closeSearch()"><div class="sri-title">'+m.t+'</div><div class="sri-desc">'+m.d+'</div></a>';}).join('');}
+initSearch();
+function doSearch(q){var results=document.getElementById('searchResults');if(!results)return;q=q.toLowerCase().trim();
+if(q.length<2){showSuggestions();return}
+var items=[];for(var i=0;i<searchIndex.length;i++){var it=searchIndex[i];if(it.t.toLowerCase().indexOf(q)!==-1||it.d.toLowerCase().indexOf(q)!==-1){items.push(it)}}
+if(items.length===0){results.innerHTML='<div style="padding:20px;font-size:0.85rem;color:var(--gray-400);text-align:center">No results for "<strong style="color:var(--gray-600)">'+q+'</strong>"</div>';return}
+var cityMatches=[],stateMatches=[],blogMatches=[],guideMatches=[],pageMatches=[];
+for(var i=0;i<items.length&&i<30;i++){var it=items[i];var u=it.u;
+if(u.indexOf('/plasma-donation-')===0&&u.split('-').length<=4){cityMatches.push(it)}
+else if(u.indexOf('/plasma-donation-')===0){stateMatches.push(it)}
+else if(u.indexOf('/blog/')===0){blogMatches.push(it)}
+else if(u.indexOf('/biolife-')===0||u.indexOf('/how-to-')===0||u.indexOf('/plasma-donation-for-')===0||u.indexOf('/weight-')===0){guideMatches.push(it)}
+else{pageMatches.push(it)}}
+function renderGroup(label,icon,arr,limit){if(!arr.length)return '';var html='<div class="auto-group"><div class="auto-heading">'+icon+' '+label+'</div>';for(var j=0;j<Math.min(arr.length,limit);j++){var a=arr[j];var t=a.t;html+='<a href="'+a.u+'" class="auto-item" onclick="closeSearch()"><span class="ai-icon">'+icon+'</span><span class="ai-title">'+t+'</span><span class="ai-desc">'+a.d.substring(0,50)+'...</span></a>'}html+='</div>';return html}
+var html='<div class="auto-match">';
+html+=renderGroup('Cities','📍',cityMatches,4);
+html+=renderGroup('States','📍',stateMatches,4);
+html+=renderGroup('Articles','📄',blogMatches,4);
+html+=renderGroup('Guides','📋',guideMatches,4);
+html+=renderGroup('Pages','🔗',pageMatches,4);
+html+='</div>';
+results.innerHTML=html;}
 </script>`;
 
 function buildCityContent(c) {
