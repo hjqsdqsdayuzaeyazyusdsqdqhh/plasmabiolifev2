@@ -807,6 +807,7 @@ function page(title, desc, bodyContent, extraLd) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
 <meta name="description" content="${desc}">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2C16 2 8 12 8 19c0 4.418 3.582 8 8 8s8-3.582 8-8c0-7-8-17-8-17z' fill='%2314b8a6'/%3E%3Cpath d='M16 6c0 7-6 14-6 14s6-2 6-8 6 8 6 8-6-7-6-14z' fill='%230f172a' opacity='0.9'/%3E%3Cpath d='M16 15l3 4h-6l3-4z' fill='%23fff' opacity='0.95'/%3E%3C/svg%3E">
 <link rel="canonical" href="https://www.plasmabiolife.com/">
 <meta name="robots" content="index, follow">
 <script type="application/ld+json">${ld}</script>
