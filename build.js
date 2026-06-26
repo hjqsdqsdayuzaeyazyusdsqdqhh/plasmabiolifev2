@@ -351,8 +351,11 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 .search-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.92);z-index:999;display:none;align-items:flex-start;justify-content:center;padding-top:80px}
 .search-overlay.open{display:flex}
 .search-wrap{width:100%;max-width:580px;padding:0 24px}
-.search-wrap input{width:100%;padding:14px 18px;border:2px solid var(--teal);border-radius:var(--radius);background:var(--white);font-size:1rem;font-family:inherit;color:var(--gray-900);outline:none}
-.search-wrap input::placeholder{color:var(--gray-400)}
+.search-input-wrap{display:flex;gap:0}
+.search-input-wrap input{flex:1;padding:14px 18px;border:2px solid var(--teal);border-right:none;border-radius:var(--radius) 0 0 var(--radius);background:var(--white);font-size:1rem;font-family:inherit;color:var(--gray-900);outline:none}
+.search-input-wrap input::placeholder{color:var(--gray-400)}
+.search-go{background:var(--teal);border:none;border-radius:0 var(--radius) var(--radius) 0;padding:0 18px;cursor:pointer;display:flex;align-items:center;color:var(--white);transition:background .15s}
+.search-go:hover{background:var(--teal-dark)}
 .search-results{margin-top:12px;max-height:50vh;overflow-y:auto;background:var(--white);border-radius:var(--radius);padding:8px}
 .search-result-item{display:block;padding:10px 14px;border-radius:6px;text-decoration:none;color:var(--gray-900);transition:background .12s}
 .search-result-item:hover{background:var(--teal-light)}
@@ -385,7 +388,10 @@ footer .copy{color:var(--gray-500);font-size:0.72rem}
 const SEARCH_OVERLAY = `<div class="search-overlay" id="searchOverlay">
 <button class="search-close" onclick="closeSearch()">&times;</button>
 <div class="search-wrap">
-<input type="text" id="searchInput" placeholder="Search cities, articles, topics..." oninput="doSearch(this.value)" autofocus>
+<div class="search-input-wrap">
+<input type="text" id="searchInput" placeholder="Search cities, articles, topics..." autofocus>
+<button class="search-go" onclick="doSearch(document.getElementById('searchInput').value)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+</div>
 <div class="search-results" id="searchResults"></div>
 </div>
 </div>`;
@@ -557,7 +563,7 @@ renderComments();
 renderComments();
 })();
 var searchIndex = [${SEARCH_INDEX}];
-function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(function(){var inp=document.getElementById('searchInput');if(inp){inp.value='';inp.focus();document.getElementById('searchResults').innerHTML='';}},100)}
+function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(function(){var inp=document.getElementById('searchInput');if(inp){inp.value='';inp.focus();inp.addEventListener('keydown',function(e){if(e.key==='Enter'){doSearch(inp.value)}});document.getElementById('searchResults').innerHTML='';}},100)}
 function closeSearch(){document.getElementById('searchOverlay').classList.remove('open')}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch()}});
 function doSearch(q){var results=document.getElementById('searchResults');if(!results)return;q=q.toLowerCase().trim();if(q.length<2){results.innerHTML='';return}
