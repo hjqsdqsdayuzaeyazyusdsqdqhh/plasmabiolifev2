@@ -516,12 +516,37 @@ const CALCULATOR_HTML = `<section class="calc-section" id="calculator">
 </div>
 </section>`;
 
+const FAQ_ENTRIES = [
+  {t:'How much does BioLife pay per donation?',d:'BioLife pays new donors ~$115/donation, returning ~$65. Rates vary by weight tier, location, and promotions.',u:'/#faq'},
+  {t:'How often can I donate plasma at BioLife?',d:'FDA guidelines allow up to 2 donations per week, 8 per month. At least 48 hours between donations.',u:'/#faq'},
+  {t:'Are BioLife new donor bonuses available?',d:'Yes, new donor promotions offer elevated rates ~$115/donation for first visits. Check local center.',u:'/#faq'},
+  {t:'Do I need to pay taxes on plasma donation income?',d:'Yes, IRS considers plasma compensation taxable income. 1099-NEC issued if earnings exceed $600/year.',u:'/blog/plasma-donation-tax-guide'},
+  {t:'What are eligibility requirements to donate at BioLife?',d:'Must be 18+, weigh 110+ lbs, valid government ID and SSN. Pass medical screening.',u:'/blog/plasma-donation-requirements'},
+  {t:'What is the minimum weight for plasma donation?',d:'Minimum 110 pounds (50 kg). Weight-based pay tiers: standard 110-149, mid 150-174, upper 175+.',u:'/blog/plasma-donation-weight-requirements'},
+  {t:'BioLife pay schedule and payment method',d:'Donors compensated immediately after donation via prepaid debit card. Funds available within minutes.',u:'/blog/biolife-pay-schedule'},
+  {t:'What to eat before donating plasma',d:'Eat protein-rich meal 2-3 hours before. Stay hydrated. Avoid fatty foods, caffeine, alcohol.',u:'/blog/what-to-eat-before-donating-plasma'},
+  {t:'First time plasma donation tips',d:'Bring ID, SSN card, proof of address. Hydrate, eat well. First visit takes 60-90 minutes.',u:'/blog/first-time-plasma-donation-tips'},
+  {t:'BioLife referral program bonus',d:'Refer friends to earn bonus compensation. Share referral code. Bonus added to prepaid card.',u:'/blog/biolife-referral-program'},
+  {t:'BioLife promotions calendar 2026',d:'Seasonal promotions, new donor bonuses, referral bonuses, frequency bonuses throughout 2026.',u:'/blog/biolife-promotions-calendar'},
+  {t:'How to track plasma donation earnings',d:'Use our free calculator, keep spreadsheet, check prepaid card history, save receipts for taxes.',u:'/blog/how-to-track-plasma-donation-earnings'},
+  {t:'Plasma donation side effects',d:'Common: dehydration, lightheadedness, bruising, fatigue. Drink water, eat well, rest after donation.',u:'/blog/plasma-donation-side-effects'},
+  {t:'Plasma donation after care',d:'Keep bandage 4h, avoid heavy lifting, drink fluids, eat balanced meal, avoid alcohol 24h.',u:'/blog/plasma-donation-after-care'},
+  {t:'New donor bonus guide 2026',d:'First month earnings up to $920. New donor rate ~$115/donation. Schedule 8 donations in first month.',u:'/blog/new-donor-bonus-guide'},
+  {t:'BioLife vs CSL Plasma comparison',d:'BioLife: $115 new/$65 returning. CSL: ~$110 new/$60 returning. Compare rates, locations, experience.',u:'/biolife-vs-csl-plasma'},
+  {t:'BioLife vs Grifols Plasma comparison',d:'BioLife: $115 new/$65 returning. Grifols: ~$100-110 new/$55-65 returning. Center network comparison.',u:'/biolife-vs-grifols-plasma'},
+  {t:'Weight-based plasma pay tiers BioLife',d:'Standard 110-149lbs base rate, Mid 150-174lbs increased, Upper 175+lbs highest rate.',u:'/weight-based-plasma-pay'},
+  {t:'How to prepare for plasma donation',d:'Hydrate 24h before, eat protein meal 2-3h before, avoid caffeine, bring documents.',u:'/how-to-prepare-for-plasma-donation'},
+  {t:'Plasma donation for college students',d:'Flexible scheduling, earn up to $920/month, centers near campus, evening/weekend appointments.',u:'/plasma-donation-for-college-students'},
+];
+
 const SEARCH_INDEX = '[' +
-  CITIES.map(c => JSON.stringify({t:c.city+', '+c.state,d:'BioLife plasma donation center in '+c.city+', '+c.state,u:'/plasma-donation-'+c.slug})).join(',') + ',' +
-  STATES.map(s => JSON.stringify({t:s.name+' Plasma Donation',d:'BioLife plasma donation centers and rates in '+s.name,u:'/plasma-donation-'+s.slug})).join(',') + ',' +
+  CITIES.map(c => JSON.stringify({t:c.city+', '+c.state,d:'BioLife plasma donation center at '+c.addr+'. Rates: new ~$115, returning ~$65. Weight-based pay, 2x/week max. Hours Mon-Sat 7am-7pm Sun 8am-5pm.',u:'/plasma-donation-'+c.slug})).join(',') + ',' +
+  STATES.map(s => JSON.stringify({t:s.name+' Plasma Donation',d:'BioLife plasma donation centers and rates in '+s.name+'. New ~$115/donation, returning ~$65. Weight-based pay. FDA-licensed centers.',u:'/plasma-donation-'+s.slug})).join(',') + ',' +
   BLOG_POSTS.map(b => JSON.stringify({t:b.title,d:b.desc,u:'/blog/'+b.slug})).join(',') + ',' +
   COMPARE_PAGES.map(p => JSON.stringify({t:p.title,d:p.desc,u:'/'+p.slug})).join(',') + ',' +
-  STATIC_PAGES.filter(p => p.path!=='calculator').map(p => JSON.stringify({t:p.title,d:p.desc,u:'/'+p.path})).join(',') +
+  STATIC_PAGES.filter(p => p.path!=='calculator').map(p => JSON.stringify({t:p.title,d:p.desc,u:'/'+p.path})).join(',') + ',' +
+  FAQ_ENTRIES.map(e => JSON.stringify({t:e.t,d:e.d,u:e.u})).join(',') + ',' +
+  CITIES.map(c => JSON.stringify({t:'BioLife '+c.city+' '+c.state+' address hours',d:''+c.addr+'. Mon-Sat 7am-7pm Sun 8am-5pm. New donor rate ~$115. Returning ~$65. Weight-based pay tiers.',u:'/plasma-donation-'+c.slug})).join(',') +
 ']';
 
 const CALC_SCRIPT = `<script>
@@ -607,25 +632,29 @@ var searchIndex = [${SEARCH_INDEX}];
 var suggestionsHtml = '';
 function initSearch(){var r=document.getElementById('searchResults');if(r)suggestionsHtml=r.innerHTML;}
 function showSuggestions(){var r=document.getElementById('searchResults');if(r&&suggestionsHtml)r.innerHTML=suggestionsHtml;}
-function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(function(){var inp=document.getElementById('searchInput');if(inp){inp.value='';inp.focus();inp.addEventListener('keydown',function(e){if(e.key==='Enter'){doSearch(inp.value)}});showSuggestions();}},100)}
+function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(function(){var inp=document.getElementById('searchInput');if(inp){inp.value='';inp.focus();inp.addEventListener('keydown',function(e){if(e.key==='Enter'){doSearch(inp.value);}});showSuggestions();}},100)}
 function closeSearch(){document.getElementById('searchOverlay').classList.remove('open')}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch()}});
 initSearch();
-function doSearch(q){var results=document.getElementById('searchResults');if(!results)return;q=q.toLowerCase().trim();
+function doSearch(q){var results=document.getElementById('searchResults');if(!results)return;var raw=q;q=q.toLowerCase().trim();
 if(q.length<2){showSuggestions();return}
-var items=[];for(var i=0;i<searchIndex.length;i++){var it=searchIndex[i];if(it.t.toLowerCase().indexOf(q)!==-1||it.d.toLowerCase().indexOf(q)!==-1){items.push(it)}}
-if(items.length===0){results.innerHTML='<div style="padding:20px;font-size:0.85rem;color:var(--gray-400);text-align:center">No results for "<strong style="color:var(--gray-600)">'+q+'</strong>"</div>';return}
-var cityMatches=[],stateMatches=[],blogMatches=[],guideMatches=[],pageMatches=[];
-for(var i=0;i<items.length&&i<30;i++){var it=items[i];var u=it.u;
+var words=q.split(/\s+/).filter(function(w){return w.length>0});
+var items=[];for(var i=0;i<searchIndex.length;i++){var it=searchIndex[i];var text=(it.t+' '+it.d).toLowerCase();var match=words.every(function(w){return text.indexOf(w)!==-1});if(match){items.push(it)}}
+if(items.length===0){results.innerHTML='<div style="padding:20px;font-size:0.85rem;color:var(--gray-400);text-align:center">No results for "<strong style="color:var(--gray-600)">'+raw+'</strong>"</div>';return}
+var cityMatches=[],stateMatches=[],blogMatches=[],guideMatches=[],faqMatches=[],pageMatches=[];
+for(var i=0;i<items.length&&i<40;i++){var it=items[i];var u=it.u;
 if(u.indexOf('/plasma-donation-')===0&&u.split('-').length<=4){cityMatches.push(it)}
 else if(u.indexOf('/plasma-donation-')===0){stateMatches.push(it)}
 else if(u.indexOf('/blog/')===0){blogMatches.push(it)}
+else if(u.indexOf('/#faq')===0){faqMatches.push(it)}
 else if(u.indexOf('/biolife-')===0||u.indexOf('/how-to-')===0||u.indexOf('/plasma-donation-for-')===0||u.indexOf('/weight-')===0){guideMatches.push(it)}
 else{pageMatches.push(it)}}
-function renderGroup(label,icon,arr,limit){if(!arr.length)return '';var html='<div class="auto-group"><div class="auto-heading">'+icon+' '+label+'</div>';for(var j=0;j<Math.min(arr.length,limit);j++){var a=arr[j];var t=a.t;html+='<a href="'+a.u+'" class="auto-item" onclick="closeSearch()"><span class="ai-icon">'+icon+'</span><span class="ai-title">'+t+'</span><span class="ai-desc">'+a.d.substring(0,50)+'...</span></a>'}html+='</div>';return html}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function renderGroup(label,icon,arr,limit){if(!arr.length)return '';var html='<div class="auto-group"><div class="auto-heading">'+icon+' '+label+' <span class="auto-count">('+arr.length+')</span></div>';for(var j=0;j<Math.min(arr.length,limit);j++){var a=arr[j];html+='<a href="'+a.u+'" class="auto-item" onclick="closeSearch()"><span class="ai-icon">'+icon+'</span><span class="ai-title">'+esc(a.t)+'</span><span class="ai-desc">'+esc(a.d.substring(0,60))+'...</span></a>'}html+='</div>';return html}
 var html='<div class="auto-match">';
 html+=renderGroup('Cities','📍',cityMatches,4);
 html+=renderGroup('States','📍',stateMatches,4);
+html+=renderGroup('FAQ','❓',faqMatches,4);
 html+=renderGroup('Articles','📄',blogMatches,4);
 html+=renderGroup('Guides','📋',guideMatches,4);
 html+=renderGroup('Pages','🔗',pageMatches,4);
