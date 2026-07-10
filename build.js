@@ -1965,6 +1965,7 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
 <p>Have questions, suggestions, or feedback about our BioLife Plasma Pay Guide? We'd love to hear from you.</p>
 <p>Please note: This is an independent informational website and is NOT affiliated with BioLife Plasma Services or Takeda Pharmaceuticals. We cannot assist with specific center inquiries, appointments, or account issues.</p>
 <p>For BioLife-specific support, please contact BioLife Plasma Services directly through their official website or visit your local center.</p>
+<p>Email: <a href="mailto:adimozada463@gmail.com">adimozada463@gmail.com</a></p>
 </div></div></article>`;
   } else if (p.path === 'disclaimer') {
     body = `<article><div class="content-page"><div class="container">
