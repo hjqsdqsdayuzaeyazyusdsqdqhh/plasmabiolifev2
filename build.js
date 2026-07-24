@@ -1773,9 +1773,9 @@ function buildTrustBar() {
 <div class="trust-bar-inner">
 <div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Published Industry Data</div>
 <div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>FDA-Regulated Centers</div>
-<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>500K+ Monthly Readers</div>
+<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>Independent &amp; Free</div>
 <div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SSL Secured</div>
-<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Updated June 2026</div>
+<div class="trust-bar-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Updated July 2026</div>
 </div>
 </div>
 </div>`;
@@ -2284,10 +2284,29 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
   } else if (p.path === 'contact') {
     body = `<article><div class="content-page"><div class="container">
 <h1>Contact Us</h1>
-<p>Have questions, suggestions, or feedback about our BioLife Plasma Pay Guide? We'd love to hear from you.</p>
-<p>Please note: This is an independent informational website and is NOT affiliated with BioLife Plasma Services or Takeda Pharmaceuticals. We cannot assist with specific center inquiries, appointments, or account issues.</p>
-<p>For BioLife-specific support, please contact BioLife Plasma Services directly through their official website or visit your local center.</p>
+<p class="meta">Last updated: July 2026</p>
+<p>Have questions, suggestions, or feedback about our BioLife Plasma Pay Guide? We welcome input from our readers and are committed to responding to all legitimate inquiries.</p>
+<h2>What We Can Help With</h2>
+<p>Our team is able to assist with the following types of inquiries:</p>
+<ul>
+<li><strong>Content corrections:</strong> If you believe any information on this site is inaccurate, please provide the specific page URL and a description of the issue. We investigate all reports and correct verified errors promptly.</li>
+<li><strong>General questions:</strong> If you have questions about plasma donation compensation, eligibility requirements, or how our estimation tools work, please describe your question in enough detail for us to provide a useful response.</li>
+<li><strong>Feedback and suggestions:</strong> We value reader input on how to improve this resource. If you have suggestions for new content, features, or improvements, please let us know.</li>
+<li><strong>Partnership inquiries:</strong> We welcome inquiries from healthcare educators, financial literacy organizations, and other aligned entities. Please describe your proposed collaboration in your initial message.</li>
+</ul>
+<h2>What We Cannot Help With</h2>
+<p>As an independent informational website, we are unable to assist with certain types of inquiries. Please note the following limitations:</p>
+<ul>
+<li><strong>Center-specific support:</strong> We cannot assist with appointment scheduling, account issues, donation center hours, or any other operational matters. For these inquiries, please contact BioLife Plasma Services directly through their official website or visit your local center.</li>
+<li><strong>Medical questions:</strong> We are not medical professionals and cannot provide medical advice, eligibility assessments, or health guidance. Please consult a qualified healthcare provider for medical questions related to plasma donation.</li>
+<li><strong>Financial advice:</strong> Our content is informational only and does not constitute financial advice. We cannot provide personalized financial guidance or earnings projections.</li>
+</ul>
+<h2>Response Time</h2>
+<p>We aim to respond to all inquiries within 5 business days. Content correction reports are typically addressed within 48 hours if the reported issue is verified. Please note that response times may vary during periods of high volume.</p>
+<h2>Contact Information</h2>
 <p>Email: <a href="mailto:adimozada463@gmail.com">adimozada463@gmail.com</a></p>
+<p>For more information about our team and editorial process, visit our <a href="/about">About page</a>.</p>
+<p><em>This is an independent informational website and is NOT affiliated with BioLife Plasma Services or Takeda Pharmaceuticals.</em></p>
 </div></div></article>`;
   } else if (p.path === 'disclaimer') {
     body = `<article><div class="content-page"><div class="container">
@@ -2689,7 +2708,7 @@ BLOG_POSTS.forEach(b => {
 <p><strong>"I will be notified before my promotional rate ends."</strong> According to donor-reported experiences, centers generally do not provide advance notice when the promotional period concludes. The transition to returning-donor rates happens automatically in the system. Asking staff to confirm your current compensation status during a visit is the most reliable way to know where you stand.</p>
 
 <h2>How Promotional Terms Vary by Location</h2>
-<p>New-donor promotional terms are not uniform across all BioLife centers. According to published information, the number of visits covered by the promotion, the specific per-donation rate, and any附加条件 can differ based on the center's location, local market conditions, and the promotional campaign active at the time of your enrollment.</p>
+<p>New-donor promotional terms are not uniform across all BioLife centers. According to published information, the number of visits covered by the promotion, the specific per-donation rate, and any additional conditions can differ based on the center's location, local market conditions, and the promotional campaign active at the time of your enrollment.</p>
 <p>Some centers may offer the elevated rate for four visits; others may extend it to six or eight. The per-donation amount may also vary slightly by region, though the approximate $115 figure is the most commonly reported rate nationally. Certain centers may run limited-time campaigns that temporarily adjust the promotional structure, such as offering a higher per-visit rate during a specific recruitment period.</p>
 <p>Because these terms are established at enrollment and can change without notice, verifying the specific promotional terms with your local center before your first visit is the most reliable approach. Ask the front desk staff how many visits are covered by the current promotion and what the per-donation rate will be for each of those visits. This information should be available at the time of registration.</p>
 
