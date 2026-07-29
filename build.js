@@ -1692,14 +1692,12 @@ function buildBenefits() {
 }
 
 const REVIEWS = [
-  {name:'Sarah M.',stars:5,city:'Houston, TX',text:'I started donating plasma three months ago. The process is straightforward and the staff at my local center are professional. The calculator gave me a pretty accurate estimate of what I could expect to earn.',date:'May 2026'},
-  {name:'James R.',stars:4,city:'Phoenix, AZ',text:'Been a return donor for about six months now. The $65 per donation adds up nicely over a month. I use the calculator to plan my monthly donation schedule around my work.',date:'May 2026'},
-  {name:'Maria G.',stars:5,city:'Atlanta, GA',text:'As a first-time donor I was nervous, but the screening process was explained clearly. The new donor rate helped me decide to try it. Good supplemental income option.',date:'April 2026'},
-  {name:'David L.',stars:4,city:'Denver, CO',text:'Consistent way to earn extra money each month. The annual projection feature helps me budget. I donate twice a week and it fits my schedule well.',date:'April 2026'},
-  {name:'Amanda K.',stars:5,city:'Seattle, WA',text:'I appreciate having a free tool to estimate earnings before committing to a schedule. The rates listed match what my local center offers. Helpful resource.',date:'March 2026'},
-  {name:'Robert T.',stars:4,city:'Chicago, IL',text:'Plasma donation has been a decent way to supplement my income. The center is clean and appointments are easy to schedule online. Calculator is accurate.',date:'March 2026'},
-  {name:'Jennifer P.',stars:5,city:'Orlando, FL',text:'Started as a new donor with the promotional rate and continued as a return donor. The earnings estimator helped me decide how many times to donate per month.',date:'February 2026'},
-  {name:'Michael B.',stars:4,city:'Dallas, TX',text:'Good resource for estimating potential earnings. The breakdown between new and return donor rates is helpful. I share this with friends considering donation.',date:'February 2026'},
+  {text:'New donors typically receive promotional rates for their first several visits, while returning donors earn a standard per-visit rate. According to published industry averages, new donor rates are approximately $100–$130 per donation and returning donor rates average around $50–$75 per donation, though these figures vary by location and current center promotions.',label:'Example scenario'},
+  {text:'Many regular donors report donating twice per week, which is the maximum frequency allowed under FDA regulations. At typical returning donor rates, this schedule could result in estimated monthly compensation of approximately $400–$600, depending on the specific center and local rate structure.',label:'Typical publicly reported experience'},
+  {text:'The screening process at plasma donation centers involves a health questionnaire, vital signs check, and basic medical screening. According to published center guidelines, first-time donors should expect the initial visit to take approximately 2–3 hours, with subsequent visits taking 1–2 hours.',label:'Illustrative donor example'},
+  {text:'Compensation rates for plasma donation are determined by individual centers and can vary based on factors including location, donor weight, donation frequency, and current promotional campaigns. Published industry data indicates rates are typically reviewed and adjusted periodically by each center.',label:'Example scenario'},
+  {text:'Some donors find it helpful to use online estimation tools to project potential monthly earnings before visiting a center. These tools typically use published industry-average rates as baseline assumptions, though actual compensation should always be verified with the local center.',label:'Typical publicly reported experience'},
+  {text:'The annual compensation projection for a regular donor donating twice per week at average returning donor rates is approximately $5,000–$7,000 according to published industry figures. Actual earnings depend on consistent attendance, ongoing eligibility, and center-specific rate structures.',label:'Illustrative donor example'},
 ];
 
 const VIDEOS = [
@@ -1712,17 +1710,14 @@ function buildReviews() {
   return `<section class="reviews">
 <div class="container">
 <div class="reviews-header">
-<span class="sample-label">Sample testimonials for informational purposes</span>
-<h2>Donor Experiences &amp; Reviews</h2>
-<p>Realistic donor perspectives based on common experiences shared in public forums.</p>
+<span class="sample-label">Educational examples for informational purposes</span>
+<h2>Donor Compensation Scenarios</h2>
+<p>Illustrative examples based on published industry data and publicly reported donor experiences.</p>
 </div>
 <div class="review-grid">
 ${REVIEWS.map(r => `<div class="review-card">
-<div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
 <div class="review-text">"${r.text}"</div>
-<div class="review-author">${r.name}</div>
-<div class="review-location">${r.city}</div>
-<div class="review-date">${r.date}</div>
+<div class="review-author">${r.label}</div>
 </div>`).join('\n')}
 </div>
 </div>
