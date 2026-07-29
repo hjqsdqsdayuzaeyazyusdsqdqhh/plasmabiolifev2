@@ -2226,25 +2226,41 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
   } else if (p.path === 'privacy') {
     body = `<article><div class="content-page"><div class="container">
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated: June 2026</p>
+<p class="meta">Last updated: July 2026</p>
 <h2>Introduction</h2>
 <p>Your privacy is important to us. This Privacy Policy explains how the BioLife Plasma Pay Guide website ("we," "our," or "this website") handles information when you visit and use our website. By using this website, you acknowledge the practices described in this policy.</p>
-<h2>Information We Collect</h2>
-<p>This website does not collect, store, or process any personal information from its users. All calculator inputs and calculations are performed entirely within your browser using client-side JavaScript. <strong>No data you enter into the calculator is transmitted to our servers or any third party.</strong> We do not create user accounts, send newsletters, or store any personal data.</p>
-<h2>Automatic Data Collection</h2>
-<p>Like most websites, we may automatically collect certain non-personally identifiable information when you visit, such as browser type, operating system, referring URL, and aggregate page view statistics. This information is used solely for understanding general traffic patterns and improving our website. It cannot be used to identify individual users.</p>
-<h2>Cookies & Tracking Technologies</h2>
-<p>This website does not set its own cookies. However, third-party services we use (such as Google AdSense) may use cookies, web beacons, or similar technologies to deliver relevant advertisements and measure ad performance. These technologies are governed by the third-party providers' own privacy policies. You can control cookie preferences through your browser settings — most browsers allow you to block or delete cookies. The comment system uses your browser's localStorage to store comment data locally; no data is transmitted to our servers.</p>
-<h2>Third-Party Services</h2>
-<p>This website may display advertisements via Google AdSense or other ad networks. Google AdSense uses cookies to serve ads based on your visits to this and other websites. You can learn more about Google's advertising privacy practices at Google's Privacy Policy page. You can opt out of personalized advertising by visiting Google's Ads Settings.</p>
+<h2>Information We Collect Directly</h2>
+<p>We do not collect, store, or process any personal information from our users. All calculator inputs and calculations are performed entirely within your browser using client-side JavaScript. <strong>No data you enter into the calculator is transmitted to our servers or any third party.</strong> We do not create user accounts, send newsletters, or operate any system that collects personal data. We do not use server-side analytics, tracking scripts, or logging systems that capture IP addresses or browsing behavior.</p>
+<h2>Information Collected by Third Parties</h2>
+<p>This website displays advertisements through Google AdSense, a third-party advertising service. Google AdSense may use cookies, web beacons, and similar technologies to collect information about your visits to this and other websites in order to provide relevant advertisements. This information may include browser type, IP address, pages visited, and interaction with advertisements. These practices are governed by Google's Privacy Policy, not ours. We do not control what information Google collects through AdSense.</p>
+<h2>Cookies</h2>
+<p>This website does not set its own cookies. However, Google AdSense and other third-party advertising networks may set cookies on your device when you view advertisements on this site. These cookies are used for purposes including:</p>
+<ul>
+<li>Serving relevant advertisements based on your browsing history</li>
+<li>Limiting the number of times you see the same advertisement</li>
+<li>Measuring the effectiveness of advertising campaigns</li>
+<li>Reporting aggregate advertising performance data</li>
+</ul>
+<p>You can control cookie preferences through your browser settings. Most browsers allow you to:</p>
+<ul>
+<li>View and delete individual cookies</li>
+<li>Block cookies from specific websites</li>
+<li>Block all third-party cookies</li>
+<li>Enable private or incognito browsing modes that limit cookie storage</li>
+</ul>
+<p>If you disable cookies, some functionality on this and other websites may be affected. Blocking advertising cookies will not remove advertisements but may result in less relevant ads.</p>
+<h2>Local Storage</h2>
+<p>The comment system on this website uses your browser's localStorage feature to store comment data locally on your device. This data remains on your device and is not transmitted to our servers. You can clear localStorage data at any time through your browser settings. No personal information is required to use the comment system.</p>
+<h2>Third-Party Advertising & Opt-Out Options</h2>
+<p>Google AdSense may serve advertisements based on your previous visits to this and other websites. You can learn more about Google's advertising practices at Google's Privacy & Terms site. To opt out of personalized advertising from Google, visit Google's Ads Settings. You can also opt out of interest-based advertising from participating ad networks through the Digital Advertising Alliance opt-out page or the Network Advertising Initiative opt-out page.</p>
 <h2>Third-Party Links</h2>
 <p>This website may contain links to third-party websites, including social media platforms and external resources. We are not responsible for the privacy practices or content of these third-party sites. We encourage you to review the privacy policies of any external websites you visit.</p>
 <h2>Data Security</h2>
-<p>We implement reasonable security measures to protect the limited information processed through this website. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security of any information transmitted to or through our website.</p>
+<p>As this website does not collect or store personal data, there are no databases or servers containing user information to secure. The limited information processed through third-party services (such as Google AdSense) is governed by their respective security practices. No method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security of any information transmitted to third-party services through this website.</p>
 <h2>Children's Privacy</h2>
-<p>This website is not directed to, and we do not knowingly collect any information from, children under the age of 18. If you believe a child has provided personal information through our website, please contact us so we can take appropriate action.</p>
+<p>This website is not directed to, and we do not knowingly collect any information from, children under the age of 18. If you believe a child has provided personal information through third-party services on this website, please contact us so we can take appropriate action.</p>
 <h2>Do Not Track</h2>
-<p>This website does not respond to Do Not Track (DNT) browser signals at this time, as no uniform standard for DNT signals has been adopted.</p>
+<p>This website does not respond to Do Not Track (DNT) browser signals at this time, as no uniform standard for DNT signals has been adopted. Third-party services such as Google AdSense may respond to DNT signals according to their own policies.</p>
 <h2>Changes to This Policy</h2>
 <p>We reserve the right to update or modify this Privacy Policy at any time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of this website after changes are posted constitutes your acceptance of the revised policy.</p>
 <h2>Contact</h2>
@@ -2253,32 +2269,36 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
   } else if (p.path === 'terms') {
     body = `<article><div class="content-page"><div class="container">
 <h1>Terms & Conditions</h1>
-<p class="meta">Last updated: June 2026</p>
+<p class="meta">Last updated: July 2026</p>
 <h2>1. Acceptance of Terms</h2>
 <p>By accessing or using the BioLife Plasma Pay Guide website ("this website"), you agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must not use this website.</p>
 <h2>2. Informational Purposes Only</h2>
-<p>All content, tools, calculators, data, and materials on this website are provided for general informational and educational purposes only. They do not constitute professional advice of any kind. Compensation figures are based on published industry averages and should not be considered guaranteed or promised earnings. Actual compensation varies by location, weight-based pay tables, current center promotions, and other factors beyond our control.</p>
+<p>All content, tools, calculators, data, and materials on this website are provided for general informational and educational purposes only. They do not constitute professional advice of any kind. Compensation figures are based on published industry averages and should not be considered guaranteed or promised earnings. Actual compensation varies by location, donor weight, donation frequency, current center promotions, and other factors beyond our control.</p>
 <h2>3. No Affiliation</h2>
 <p>This website is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with BioLife Plasma Services, Takeda Pharmaceuticals, or any of their subsidiaries or affiliates. "BioLife" is a registered trademark of Takeda Pharmaceutical Company. Any reference to BioLife on this website is for informational and descriptive purposes only and does not imply any association or endorsement.</p>
-<h2>4. No Professional Advice</h2>
+<h2>4. Trademark Notice</h2>
+<p>"BioLife," the BioLife logo, and all related trademarks, service marks, and product names are the property of Takeda Pharmaceutical Company or its licensors. All other trademarks, service marks, and trade names appearing on this website are the property of their respective owners. Our use of such marks is for informational and descriptive purposes only and does not imply any affiliation with or endorsement by the trademark holder.</p>
+<h2>5. No Professional Advice</h2>
 <p>The information provided on this website does not constitute medical, financial, legal, tax, or any other professional advice. You should consult qualified, licensed professionals regarding your specific situation before making any decisions based on information found on this website. <strong>We are not medical professionals.</strong> Always consult a physician before donating plasma, especially if you have underlying health conditions.</p>
-<h2>5. Use of the Calculator</h2>
-<p>The earnings calculator on this website provides estimates based on user-provided inputs and published industry-average rates. All calculations are performed client-side in your browser. We make no representations or warranties regarding the accuracy, completeness, or reliability of any calculator results. The calculator is provided "as is" without any express or implied warranty.</p>
-<h2>6. Intellectual Property</h2>
-<p>Unless otherwise stated, we own the intellectual property rights for all content on this website, including text, graphics, logos, and tool functionality. You may access and view this content for personal, non-commercial use. You must not reproduce, distribute, modify, or publicly display any content from this website without our prior written consent.</p>
-<h2>7. User Conduct</h2>
+<h2>6. Use of the Calculator</h2>
+<p>The earnings calculator on this website provides estimates based on user-provided inputs and published industry-average rates. All calculations are performed client-side in your browser — no data is transmitted to our servers. We make no representations or warranties regarding the accuracy, completeness, or reliability of any calculator results. The calculator is provided "as is" without any express or implied warranty. Actual earnings may differ materially from calculator estimates. You should verify current compensation rates directly with your local donation center before making financial decisions.</p>
+<h2>7. Editorial Independence</h2>
+<p>This website operates as an independent, editorially controlled resource. We do not accept payment, sponsorship, or compensation from any plasma collection organization in exchange for content placement, favorable coverage, or recommendations. All content is produced solely to serve the informational needs of our readers. Display advertising (Google AdSense) is the only revenue source associated with this website, and no advertiser has influence over editorial content.</p>
+<h2>8. Intellectual Property</h2>
+<p>Unless otherwise stated, we own the intellectual property rights for all original content on this website, including text, graphics, and tool functionality. You may access and view this content for personal, non-commercial use. You must not reproduce, distribute, modify, or publicly display any content from this website without our prior written consent.</p>
+<h2>9. User Conduct</h2>
 <p>You agree not to: (a) use this website for any unlawful purpose; (b) attempt to disrupt or impair the functionality of the website or its tools; (c) scrape, data-mine, or extract content without authorization; (d) upload or transmit malicious code or harmful content.</p>
-<h2>8. Third-Party Links</h2>
-<p>This website may contain links to third-party websites or services that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You acknowledge that we shall not be liable for any damages or loss caused by your use of any third-party website.</p>
-<h2>9. Limitation of Liability</h2>
+<h2>10. Third-Party Links</h2>
+<p>This website may contain links to third-party websites or services that are not owned or controlled by us. These links are provided for your convenience and informational purposes only. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. The inclusion of any link does not imply endorsement by us. You acknowledge that we shall not be liable for any damages or loss caused by your use of any third-party website. Access and use of third-party websites are at your own risk and subject to their respective terms and privacy policies.</p>
+<h2>11. Limitation of Liability</h2>
 <p>To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of this website, including but not limited to lost earnings, lost data, or business interruption. Your sole remedy for dissatisfaction with this website is to discontinue use.</p>
-<h2>10. Disclaimer of Warranties</h2>
+<h2>12. Disclaimer of Warranties</h2>
 <p>This website and all content, tools, and materials are provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied. We do not warrant that the website will be uninterrupted, error-free, secure, or free from viruses or other harmful components.</p>
-<h2>11. Changes to Terms</h2>
+<h2>13. Changes to Terms</h2>
 <p>We reserve the right to modify or replace these Terms & Conditions at any time at our sole discretion. Changes will be effective immediately upon posting. Your continued use of the website after any modifications constitutes acceptance of the updated terms. We encourage you to review this page periodically.</p>
-<h2>12. Governing Law</h2>
+<h2>14. Governing Law</h2>
 <p>These Terms & Conditions shall be governed by and construed in accordance with the laws of the United States. Any disputes arising under these terms shall be resolved in the courts of competent jurisdiction.</p>
-<h2>13. Contact</h2>
+<h2>15. Contact</h2>
 <p>If you have questions about these Terms & Conditions, please visit our <a href="/contact">contact page</a>.</p>
 </div></div></article>`;
   } else if (p.path === 'contact') {
@@ -2311,7 +2331,7 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
   } else if (p.path === 'disclaimer') {
     body = `<article><div class="content-page"><div class="container">
 <h1>Disclaimer</h1>
-<p class="meta">Last updated: June 2026</p>
+<p class="meta">Last updated: July 2026</p>
 <h2>General Information Only</h2>
 <p>The content, tools, materials, and information published on the BioLife Plasma Pay Guide website ("this website") are provided for general informational and educational purposes only. Nothing on this website constitutes professional medical, financial, legal, or tax advice. You should always consult qualified, licensed professionals regarding your specific circumstances.</p>
 <h2>No Doctor-Patient Relationship</h2>
@@ -2320,16 +2340,20 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
 <p>Any compensation figures, earnings estimates, or financial projections displayed on this website are based on published industry averages and publicly available information. They are estimates only and should not be interpreted as guaranteed or promised earnings. Actual compensation from plasma donation varies based on multiple factors, including but not limited to: location, donor weight, donation frequency, current center promotions, donor type (new vs. returning), and changes in center compensation policies. We strongly recommend verifying current rates directly with your local donation center before making any financial decisions.</p>
 <h2>No Affiliation</h2>
 <p>This website is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with BioLife Plasma Services, Takeda Pharmaceuticals, or any of their respective subsidiaries, affiliates, or related entities. "BioLife" and all related trademarks, logos, and brand names are the property of Takeda Pharmaceutical Company. Any references to BioLife on this website are made solely for informational and descriptive purposes and do not imply any sponsorship, endorsement, or association.</p>
+<h2>Editorial Independence</h2>
+<p>This website operates independently of all plasma collection organizations. No plasma collection organization has editorial control over, or financial influence on, the content published on this site. All content decisions are made solely by the editorial team based on the informational needs of our readers. Display advertising revenue (Google AdSense) is the only potential revenue source associated with this website, and no advertiser has influence over editorial content.</p>
+<h2>Affiliate Disclosure</h2>
+<p>This website does not participate in affiliate marketing programs and does not earn commissions or referral fees from any plasma collection organization, donation center, or third-party service. We do not receive compensation for featuring or recommending any specific center, product, or service. The only potential revenue source for this website is display advertising through Google AdSense, which is clearly marked as advertising. This disclosure reflects our current practices and will be updated if our business model changes.</p>
 <h2>Accuracy & Completeness</h2>
 <p>We make reasonable efforts to ensure the accuracy of information on this website, but we make no representations or warranties, express or implied, regarding the accuracy, completeness, reliability, suitability, or availability of any content. Compensation rates, center information, and other data may change without notice. We disclaim all liability for any errors or omissions in the content.</p>
 <h2>External Links</h2>
 <p>This website may contain links to external websites, including social media platforms, government resources, and third-party information sources. We are not responsible for the content, accuracy, or practices of any linked third-party websites. The inclusion of any link does not imply endorsement by us. Access and use of third-party websites are at your own risk and subject to their respective terms and privacy policies.</p>
-<h2>Testimonials & Reviews</h2>
-<p>Testimonials, reviews, and donor experience descriptions on this website are for informational purposes only and are clearly labeled as sample/test content. Individual experiences with plasma donation vary. Past performance or experiences do not guarantee future results or similar experiences. Some testimonials may be representative summaries of common donor perspectives found in public forums.</p>
+<h2>Testimonials & Donor Experiences</h2>
+<p>Testimonials, reviews, and donor experience descriptions on this website are provided for informational purposes only. They are clearly labeled as sample or representative content and are not presented as verified individual testimonials. Individual experiences with plasma donation vary. Past performance or experiences do not guarantee future results or similar experiences. The donor perspectives presented on this site are representative summaries of commonly expressed views found in public forums and are not attributable to specific, verified individuals.</p>
 <h2>Changes to This Disclaimer</h2>
 <p>We reserve the right to modify this Disclaimer at any time without prior notice. Changes will be posted on this page with an updated "Last updated" date. Your continued use of this website following any changes constitutes acceptance of the updated Disclaimer.</p>
 <h2>Contact</h2>
-<p>If you have questions about this Disclaimer, please visit our <a href="/contact">contact page</a>.</p>
+<p>If you have questions about this Disclaimer, please visit our <a href="/contact">contact page</a> for our complete contact information, response time expectations, and guidance on submitting content correction requests.</p>
 </div></div></article>`;
   } else if (p.path === 'about') {
     body = `<article><div class="content-page"><div class="container">
@@ -2371,11 +2395,11 @@ ${CITIES.map(c => `<div class="dir-card"><h3>${c.city}, ${c.state}</h3><div clas
 </ol>
 <p>This site is produced and reviewed by our editorial team — content researchers and writers who specialize in creating factual, well-sourced informational content. We do not have medical professionals, licensed healthcare providers, or certified financial advisors on our team. Where our content touches on health, eligibility, or tax topics, we direct readers to consult appropriate qualified professionals and cite the relevant published guidelines.</p>
 <h2>Editorial Update Process</h2>
-<p>We review and update our content on a regular schedule to ensure accuracy:</p>
+<p>We review and update our content on an ongoing basis to help maintain accuracy over time:</p>
 <ul>
-<li><strong>Compensation pages:</strong> Reviewed monthly or whenever published rate information changes. Compensation figures are updated as soon as new published data becomes available.</li>
-<li><strong>Eligibility and process pages:</strong> Reviewed quarterly to reflect any changes in FDA guidance or BioLife center procedures.</li>
-<li><strong>Blog posts:</strong> Reviewed periodically and updated with a "Last Updated" date visible on each page.</li>
+<li><strong>Compensation pages:</strong> Reviewed periodically and whenever published rate information changes. Compensation figures are updated as new published data becomes available.</li>
+<li><strong>Eligibility and process pages:</strong> Reviewed regularly to reflect any changes in FDA guidance or BioLife center procedures.</li>
+<li><strong>Blog posts:</strong> Reviewed on an ongoing basis and updated with a "Last Updated" date visible on each page when significant changes are made.</li>
 <li><strong>Calculator:</strong> Underlying rate assumptions are reviewed whenever new published compensation data becomes available.</li>
 </ul>
 <p>Every page on this site displays a "Last Updated" date so readers can see how recently the information was verified. When we update content, we note significant changes and ensure that previously published information is corrected or removed.</p>
