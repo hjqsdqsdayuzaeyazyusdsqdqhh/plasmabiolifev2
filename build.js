@@ -232,7 +232,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubunt
 .btn-outline:hover{border-color:var(--teal);color:var(--teal-dark)}
 .ad-row{display:flex;justify-content:center;padding:4px 0;margin:0}
 .ad-slot{background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:6px;padding:8px 16px;text-align:center;color:var(--gray-400);font-size:0.68rem;min-height:0;line-height:1;display:inline-flex;align-items:center}
-.partner-card{margin:28px 0;padding:14px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--white)}
+.partner-card{margin:28px auto;padding:14px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--white)}
 .partner-card img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
 .partner-card-label{margin-top:10px;text-align:center;font-size:0.72rem;letter-spacing:0.3px;text-transform:uppercase;color:var(--gray-400)}
 .calc-section{padding:0 0 48px;margin-top:-8px}
