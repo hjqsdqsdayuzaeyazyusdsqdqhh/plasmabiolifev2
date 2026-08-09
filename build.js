@@ -1958,6 +1958,16 @@ ${CALC_SCRIPT}
 const dist = path.join(__dirname, 'dist');
 fs.rmSync(dist, { recursive: true, force: true });
 
+// Survey offer banner (Offer 18801) — US health survey revshare partner offer
+function buildSurveyBanner(lazy) {
+  return `<div class="partner-card" style="max-width:640px">
+<a href="https://healthsurvey0001.blogspot.com/" target="_blank" rel="nofollow sponsored noopener">
+<img src="/assets/images/survey-offer-18801.webp" alt="Health information graphic" width="1536" height="1024" decoding="async"${lazy ? ' loading="lazy"' : ''} style="display:block;width:100%;height:auto">
+</a>
+<div class="partner-card-label">Sponsored Survey — Health Survey Partner Offer</div>
+</div>`;
+}
+
 // Homepage
 const HOME_BODY = `<div class="hero">
 <div class="container">
@@ -1981,6 +1991,8 @@ const HOME_BODY = `<div class="hero">
 <div><div style="font-size:1.6rem;font-weight:800;color:var(--teal)">Same Day</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Prepaid Card Payment</div></div>
 </div>
 </div>
+
+${buildSurveyBanner(false)}
 
 <div style="max-width:700px;margin:0 auto;padding:32px 24px">
 <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:10px">What Plasma Is and Why Donors Are Compensated</h2>
@@ -2510,15 +2522,6 @@ const SURVEY_BANNER_BLOG_PAGES = [
   'biolife-referral-program',
   'plasma-donation-tax-guide'
 ];
-
-function buildSurveyBanner(lazy) {
-  return `<div class="partner-card" style="max-width:640px">
-<a href="https://healthsurvey0001.blogspot.com/" target="_blank" rel="nofollow sponsored noopener">
-<img src="/assets/images/survey-offer-18801.webp" alt="Health information graphic" width="1536" height="1024" decoding="async"${lazy ? ' loading="lazy"' : ''} style="display:block;width:100%;height:auto">
-</a>
-<div class="partner-card-label">Sponsored Survey — Health Survey Partner Offer</div>
-</div>`;
-}
 
 function injectSurveyBanner(content) {
   const banner = buildSurveyBanner(true);
