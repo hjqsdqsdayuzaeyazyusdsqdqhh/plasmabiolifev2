@@ -3,6 +3,9 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/assets/images/survey-offer-18801.png", "destination": "/assets/images/survey-offer-18801.webp" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
