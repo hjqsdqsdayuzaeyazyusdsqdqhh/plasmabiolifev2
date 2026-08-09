@@ -232,9 +232,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubunt
 .btn-outline:hover{border-color:var(--teal);color:var(--teal-dark)}
 .ad-row{display:flex;justify-content:center;padding:4px 0;margin:0}
 .ad-slot{background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:6px;padding:8px 16px;text-align:center;color:var(--gray-400);font-size:0.68rem;min-height:0;line-height:1;display:inline-flex;align-items:center}
-.survey-banner{margin:28px 0;padding:14px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--white)}
-.survey-banner img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
-.survey-banner-label{margin-top:10px;text-align:center;font-size:0.72rem;letter-spacing:0.3px;text-transform:uppercase;color:var(--gray-400)}
+.partner-card{margin:28px 0;padding:14px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--white)}
+.partner-card img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
+.partner-card-label{margin-top:10px;text-align:center;font-size:0.72rem;letter-spacing:0.3px;text-transform:uppercase;color:var(--gray-400)}
 .calc-section{padding:0 0 48px;margin-top:-8px}
 .calc-header{text-align:center;margin-bottom:24px}
 .calc-header h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.4px;margin-bottom:6px}
@@ -2512,11 +2512,11 @@ const SURVEY_BANNER_BLOG_PAGES = [
 ];
 
 function buildSurveyBanner(eager) {
-  return `<div class="survey-banner" style="max-width:640px">
+  return `<div class="partner-card" style="max-width:640px">
 <a href="https://healthsurvey0001.blogspot.com/" target="_blank" rel="nofollow sponsored noopener">
-<img src="/assets/images/survey-offer-18801.webp" alt="Sponsored Survey: Complete Paid Health Surveys in Your Free Time" width="1536" height="1024" loading="${eager ? 'eager' : 'lazy'}" decoding="async" style="width:100%;height:auto">
+<img src="/assets/images/survey-offer-18801.webp" alt="Health survey information graphic" width="1536" height="1024" loading="${eager ? 'eager' : 'lazy'}" decoding="async" style="width:100%;height:auto">
 </a>
-<div class="survey-banner-label">Sponsored Survey — Health Survey Partner Offer</div>
+<div class="partner-card-label">Sponsored Survey — Health Survey Partner Offer</div>
 </div>`;
 }
 
