@@ -2536,12 +2536,33 @@ function injectSurveyBanner(content) {
   return content + '\n' + banner;
 }
 
+function injectSurveyBannerTop(content) {
+  const banner = buildSurveyBanner();
+  const h2 = content.search(/<h2[\s>]/);
+  if (h2 > -1) {
+    const pEnd = content.slice(0, h2).lastIndexOf('</p>');
+    if (pEnd > -1) {
+      const at = pEnd + 4;
+      return content.slice(0, at) + '\n' + banner + '\n' + content.slice(at);
+    }
+  }
+  const firstP = content.indexOf('</p>');
+  if (firstP > -1) {
+    const at = firstP + 4;
+    return content.slice(0, at) + '\n' + banner + '\n' + content.slice(at);
+  }
+  return content + '\n' + banner;
+}
+
 // Landing pages
 LANDING_PAGES.forEach(p => {
   const dir = path.join(dist, p.slug);
   fs.mkdirSync(dir, { recursive: true });
   let landingContent = buildLandingContent(p);
-  if (SURVEY_BANNER_LANDING_PAGES.indexOf(p.slug) > -1) landingContent = injectSurveyBanner(landingContent);
+  if (SURVEY_BANNER_LANDING_PAGES.indexOf(p.slug) > -1) {
+    landingContent = injectSurveyBannerTop(landingContent);
+    landingContent = injectSurveyBanner(landingContent);
+  }
   const html = page(p.title, p.desc, landingContent, '', [['Home','/'],['Guide','']], '/' + p.slug);
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log('  ✓ Landing: /' + p.slug);
@@ -3268,7 +3289,10 @@ BLOG_POSTS.forEach(b => {
 </div></div>`;
   }
   let blogContent = content;
-  if (SURVEY_BANNER_BLOG_PAGES.indexOf(b.slug) > -1) blogContent = injectSurveyBanner(blogContent);
+  if (SURVEY_BANNER_BLOG_PAGES.indexOf(b.slug) > -1) {
+    blogContent = injectSurveyBannerTop(blogContent);
+    blogContent = injectSurveyBanner(blogContent);
+  }
   content = addToc(blogContent) + getRelatedArticles(b.slug);
   var bcTitle = b.title.length > 35 ? b.title.substring(0, 32) + '...' : b.title;
   const articleLd = `{
