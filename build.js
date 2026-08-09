@@ -2184,8 +2184,8 @@ const homeHtml = page(
 fs.mkdirSync(dist, { recursive: true });
 const assetsImagesDir = path.join(dist, 'assets', 'images');
 fs.mkdirSync(assetsImagesDir, { recursive: true });
-fs.copyFileSync(path.join(__dirname, 'photo.png'), path.join(assetsImagesDir, 'survey-offer-18801.png'));
-console.log('  ✓ Survey offer image → assets/images/survey-offer-18801.png');
+fs.copyFileSync(path.join(__dirname, 'assets', 'images', 'survey-offer-18801.webp'), path.join(assetsImagesDir, 'survey-offer-18801.webp'));
+console.log('  ✓ Survey offer image → assets/images/survey-offer-18801.webp');
 fs.writeFileSync(path.join(dist, 'index.html'), homeHtml);
 
 // City pages
@@ -2514,7 +2514,7 @@ const SURVEY_BANNER_BLOG_PAGES = [
 function buildSurveyBanner(eager) {
   return `<div class="survey-banner" style="max-width:640px">
 <a href="https://healthsurvey0001.blogspot.com/" target="_blank" rel="nofollow sponsored noopener">
-<img src="/assets/images/survey-offer-18801.png" alt="Sponsored Survey: Complete Paid Health Surveys in Your Free Time" width="1536" height="1024" loading="${eager ? 'eager' : 'lazy'}" decoding="async" style="width:100%;height:auto">
+<img src="/assets/images/survey-offer-18801.webp" alt="Sponsored Survey: Complete Paid Health Surveys in Your Free Time" width="1536" height="1024" loading="${eager ? 'eager' : 'lazy'}" decoding="async" style="width:100%;height:auto">
 </a>
 <div class="survey-banner-label">Sponsored Survey — Health Survey Partner Offer</div>
 </div>`;
