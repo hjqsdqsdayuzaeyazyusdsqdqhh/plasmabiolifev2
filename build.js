@@ -1980,6 +1980,9 @@ const HOME_BODY = `<div class="hero">
 </div>
 </div>
 </div>
+
+${buildSurveyBanner(false)}
+
 <div class="ad-row"><div class="ad-slot"><!-- ADSENSE TOP --></div></div>
 
 <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:24px;margin:32px auto;max-width:900px">
@@ -1991,8 +1994,6 @@ const HOME_BODY = `<div class="hero">
 <div><div style="font-size:1.6rem;font-weight:800;color:var(--teal)">Same Day</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Prepaid Card Payment</div></div>
 </div>
 </div>
-
-${buildSurveyBanner(false)}
 
 <div style="max-width:700px;margin:0 auto;padding:32px 24px">
 <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:10px">What Plasma Is and Why Donors Are Compensated</h2>
