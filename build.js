@@ -2511,17 +2511,17 @@ const SURVEY_BANNER_BLOG_PAGES = [
   'plasma-donation-tax-guide'
 ];
 
-function buildSurveyBanner(eager) {
+function buildSurveyBanner(lazy) {
   return `<div class="partner-card" style="max-width:640px">
 <a href="https://healthsurvey0001.blogspot.com/" target="_blank" rel="nofollow sponsored noopener">
-<img src="/assets/images/survey-offer-18801.webp" alt="Health survey information graphic" width="1536" height="1024" loading="${eager ? 'eager' : 'lazy'}" decoding="async" style="width:100%;height:auto">
+<img src="/assets/images/survey-offer-18801.webp" alt="Health information graphic" width="1536" height="1024" decoding="async"${lazy ? ' loading="lazy"' : ''} style="display:block;width:100%;height:auto">
 </a>
 <div class="partner-card-label">Sponsored Survey — Health Survey Partner Offer</div>
 </div>`;
 }
 
 function injectSurveyBanner(content) {
-  const banner = buildSurveyBanner();
+  const banner = buildSurveyBanner(true);
   const anchors = ['<h2>Related Resources</h2>', '<h2>Related Guides</h2>', '<div class="faq-section">'];
   for (const anchor of anchors) {
     const i = content.indexOf(anchor);
@@ -2537,7 +2537,7 @@ function injectSurveyBanner(content) {
 }
 
 function injectSurveyBannerTop(content) {
-  const banner = buildSurveyBanner(true);
+  const banner = buildSurveyBanner(false);
   const h2 = content.search(/<h2[\s>]/);
   if (h2 > -1) {
     const pEnd = content.slice(0, h2).lastIndexOf('</p>');
