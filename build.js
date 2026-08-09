@@ -232,6 +232,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubunt
 .btn-outline:hover{border-color:var(--teal);color:var(--teal-dark)}
 .ad-row{display:flex;justify-content:center;padding:4px 0;margin:0}
 .ad-slot{background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:6px;padding:8px 16px;text-align:center;color:var(--gray-400);font-size:0.68rem;min-height:0;line-height:1;display:inline-flex;align-items:center}
+.survey-banner{margin:28px 0;padding:14px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--white)}
+.survey-banner img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
+.survey-banner-label{margin-top:10px;text-align:center;font-size:0.72rem;letter-spacing:0.3px;text-transform:uppercase;color:var(--gray-400)}
 .calc-section{padding:0 0 48px;margin-top:-8px}
 .calc-header{text-align:center;margin-bottom:24px}
 .calc-header h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.4px;margin-bottom:6px}
@@ -2179,6 +2182,10 @@ const homeHtml = page(
   '/'
 );
 fs.mkdirSync(dist, { recursive: true });
+const assetsImagesDir = path.join(dist, 'assets', 'images');
+fs.mkdirSync(assetsImagesDir, { recursive: true });
+fs.copyFileSync(path.join(__dirname, 'photo.png'), path.join(assetsImagesDir, 'survey-offer-18801.png'));
+console.log('  ✓ Survey offer image → assets/images/survey-offer-18801.png');
 fs.writeFileSync(path.join(dist, 'index.html'), homeHtml);
 
 // City pages
@@ -2486,11 +2493,56 @@ COMPARE_PAGES.forEach(p => {
   console.log('  ✓ Guide: /' + p.slug);
 });
 
+// Survey offer banner (Offer 18801) — US health survey revshare partner offer
+const SURVEY_BANNER_LANDING_PAGES = [
+  'how-much-can-i-make-donating-plasma',
+  'monthly-plasma-income-guide',
+  'weekly-plasma-income',
+  'plasma-donation-income-estimator',
+  'plasma-donation-payment-guide'
+];
+
+const SURVEY_BANNER_BLOG_PAGES = [
+  'plasma-donation-for-extra-income',
+  'how-much-does-biolife-pay',
+  'biolife-pay-schedule',
+  'how-to-track-plasma-donation-earnings',
+  'biolife-referral-program',
+  'plasma-donation-tax-guide'
+];
+
+function buildSurveyBanner() {
+  return `<div class="survey-banner" style="max-width:640px">
+<a href="https://healthsurvey0001.blogspot.com/" target="_blank" rel="nofollow sponsored noopener">
+<img src="/assets/images/survey-offer-18801.png" alt="Sponsored Survey: Complete Paid Health Surveys in Your Free Time" width="1536" height="1024" loading="lazy" decoding="async" style="width:100%;height:auto">
+</a>
+<div class="survey-banner-label">Sponsored Survey — Health Survey Partner Offer</div>
+</div>`;
+}
+
+function injectSurveyBanner(content) {
+  const banner = buildSurveyBanner();
+  const anchors = ['<h2>Related Resources</h2>', '<h2>Related Guides</h2>', '<div class="faq-section">'];
+  for (const anchor of anchors) {
+    const i = content.indexOf(anchor);
+    if (i > -1) {
+      return content.slice(0, i) + banner + '\n' + content.slice(i);
+    }
+  }
+  const j = content.lastIndexOf('</div></div>');
+  if (j > -1) {
+    return content.slice(0, j) + banner + '\n' + content.slice(j);
+  }
+  return content + '\n' + banner;
+}
+
 // Landing pages
 LANDING_PAGES.forEach(p => {
   const dir = path.join(dist, p.slug);
   fs.mkdirSync(dir, { recursive: true });
-  const html = page(p.title, p.desc, buildLandingContent(p), '', [['Home','/'],['Guide','']], '/' + p.slug);
+  let landingContent = buildLandingContent(p);
+  if (SURVEY_BANNER_LANDING_PAGES.indexOf(p.slug) > -1) landingContent = injectSurveyBanner(landingContent);
+  const html = page(p.title, p.desc, landingContent, '', [['Home','/'],['Guide','']], '/' + p.slug);
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log('  ✓ Landing: /' + p.slug);
 });
@@ -3215,7 +3267,9 @@ BLOG_POSTS.forEach(b => {
 <p>Use our <a href="/#calculator">earnings calculator</a> to estimate your monthly plasma donation income.</p>
 </div></div>`;
   }
-  content = addToc(content) + getRelatedArticles(b.slug);
+  let blogContent = content;
+  if (SURVEY_BANNER_BLOG_PAGES.indexOf(b.slug) > -1) blogContent = injectSurveyBanner(blogContent);
+  content = addToc(blogContent) + getRelatedArticles(b.slug);
   var bcTitle = b.title.length > 35 ? b.title.substring(0, 32) + '...' : b.title;
   const articleLd = `{
     "@context": "https://schema.org",
