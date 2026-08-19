@@ -1958,13 +1958,13 @@ ${CALC_SCRIPT}
 const dist = path.join(__dirname, 'dist');
 fs.rmSync(dist, { recursive: true, force: true });
 
-// Survey offer banner (Offer 18801) — US health survey revshare partner offer
+// Clinical trials banner — clinical trial recruitment partner offer
 function buildSurveyBanner(lazy) {
   return `<div class="partner-card" style="max-width:640px">
-<a href="https://healthsurvey0001.blogspot.com/" target="_blank" rel="nofollow sponsored noopener">
-<img src="/assets/images/united-health-survey.webp" alt="Health information graphic" width="1536" height="1024" decoding="async"${lazy ? ' loading="lazy"' : ''} style="display:block;width:100%;height:auto">
+<a href="https://fleegird.com/vm-MH9RhNCYdivSTZe87N7SFUvrKOaN5BtRoSk4Jj0xDqxohoUs-nBx5X5K3RreodiKSJgi5Jj2qIWhCKbQWRA~~/bioda/tes/jhj" target="_blank" rel="nofollow sponsored noopener">
+<img src="/assets/images/clinical123.webp" alt="Clinical trials information" width="1536" height="1024" decoding="async"${lazy ? ' loading="lazy"' : ''} style="display:block;width:100%;height:auto">
 </a>
-<div class="partner-card-label">Sponsored Survey — Health Survey Partner Offer</div>
+<div class="partner-card-label">Sponsored — Clinical Trial Partner Offer</div>
 </div>`;
 }
 
@@ -2197,8 +2197,8 @@ const homeHtml = page(
 fs.mkdirSync(dist, { recursive: true });
 const assetsImagesDir = path.join(dist, 'assets', 'images');
 fs.mkdirSync(assetsImagesDir, { recursive: true });
-fs.copyFileSync(path.join(__dirname, 'assets', 'images', 'united-health-survey.webp'), path.join(assetsImagesDir, 'united-health-survey.webp'));
-console.log('  ✓ United Health survey image → assets/images/united-health-survey.webp');
+fs.copyFileSync(path.join(__dirname, 'assets', 'images', 'clinical123.webp'), path.join(assetsImagesDir, 'clinical123.webp'));
+console.log('  ✓ Clinical trials image → assets/images/clinical123.webp');
 fs.writeFileSync(path.join(dist, 'index.html'), homeHtml);
 
 // City pages
@@ -2506,7 +2506,7 @@ COMPARE_PAGES.forEach(p => {
   console.log('  ✓ Guide: /' + p.slug);
 });
 
-// Survey offer banner (Offer 18801) — US health survey revshare partner offer
+// Clinical trials banner — clinical trial recruitment partner offer
 const SURVEY_BANNER_LANDING_PAGES = [
   'how-much-can-i-make-donating-plasma',
   'monthly-plasma-income-guide',
